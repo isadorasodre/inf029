@@ -12,7 +12,7 @@ int main ()
             printf("Digite um segundo valor: \n");
             scanf ("%d", &n2);
             printf("ESCOLHA UMA DAS OPÇÕES: 1 - SOMAR / 2 - SUBTRAIR / 3 - MULTIPLICAR / 4 - DIVIDIR / 5 - SAIR\n");
-            scanf("%d",& opção);
+            scanf("%d", &opção);
             switch (opção)
             {
                  case 1: 
