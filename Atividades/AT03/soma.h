@@ -1,0 +1,1 @@
+int resultadodasoma (int resultado);
