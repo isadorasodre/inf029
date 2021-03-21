@@ -1,18 +1,20 @@
 #include <stdio.h>
-int soma (int numero1, int numero2)
+int subtrai (int n1, int n2, int n3)
 {
     int resultado;
-    resultado = numero1 + numero2;
-    return (resultado);
+    resultado = (n1 - n2 - n3);
+    return resultado; 
 }
 int main ()
 {
-    int n1, n2, resultado;
-    printf ("Digite o primeiro valor:\n");
-    scanf("%d", &n1);
-    printf ("Digite um segundo valor: \n");
-    scanf("%d", &n2);
-    resultado = soma (n1, n2);
-    printf ("O resultado da soma é %d\n", resultado);
+    int valor1, valor2, valor3, resultado;
+    printf ("Digite o primeiro número: \n");
+    scanf("%d", &valor1);
+    printf ("Digite o segundo valor\n");
+    scanf ("%d", &valor2);
+    printf ("Digite o terceiro valor\n");
+    scanf ("%d", &valor3);
+    resultado = subtrai (valor1, valor2, valor3);
+    printf ("O resultado da subtração dos três números é %d\n", resultado);
     return 0;
 }
