@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <conio.h>
 int fatorial (int n)
+int main ()
+{
+        int n;
+        int resultado;
+        printf ("Digite um numero para descobrir o seu fatorial\n");
+        scanf ("%d", n);
+        resultado = fatorial(n);
+        printf ("O fatorial do numero %d é %d\n", n, resultado);
+        getch();
+        return 0;
+}
 {
     int resultado;
     if (n == 1 || n == 0)
@@ -18,15 +29,4 @@ int fatorial (int n)
         printf("O número não pode ser calculado pois ele eh negativo\n");
         getch();
     }
-}
-int main ()
-{
-        int n;
-        int resultado;
-        printf ("Digite um numero para descobrir o seu fatorial\n");
-        scanf ("%d", n);
-        resultado = fatorial(n);
-        printf ("O fatorial do numero %d é %d\n", n, resultado);
-        getch();
-        return 0;
 }
