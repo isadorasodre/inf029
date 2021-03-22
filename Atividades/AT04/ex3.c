@@ -12,8 +12,9 @@ int main ()
         getch();
         return 0;
 }
+int fatorial (int n)
 {
-    int resultado;
+    int resultado, n;
     if (n == 1 || n == 0)
     {
         resultado = 1;
