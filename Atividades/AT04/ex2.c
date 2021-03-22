@@ -1,20 +1,18 @@
 #include <stdio.h>
-int subtrai (int n1, int n2, int n3)
-{
-    int n1, n2, n3;
-    resultado = n1 - n2 - n3;
-    return resultado; 
-}
+int subtrai (int n1, int n2, int n3);
 int main ()
 {
-    int valor1, valor2, valor3, resultado;
-    printf ("Digite o primeiro número: \n");
-    scanf("%d", &valor1);
-    printf ("Digite o segundo valor\n");
+    int valor1, valor2, valor3;
+    printf ("Digite um número: \n");
+    scanf ("%d", &valor1);
+    printf ("Digite um segundo número: \n");
     scanf ("%d", &valor2);
-    printf ("Digite o terceiro valor\n");
-    scanf ("%d", &valor3);
-    resultado = subtrai (valor1, valor2, valor3);
-    print ("O resultado da subtração dos três números é %d\n", resultado);
+    printf ("Digite um  terceiro número número: \n");
+    scanf ("%d", &valor1);
+    printf ("A subtração destes três números é %d", subtrai (valor1, valor2, valor3));
     return 0;
+}
+int subtrai (int n1, int n2, int n3)
+{
+    return n1 - n2 - n2;
 }
