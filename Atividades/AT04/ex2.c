@@ -10,7 +10,6 @@ int main ()
     printf ("Digite um  terceiro número número: \n");
     scanf ("%d", &valor1);
     printf ("A subtração destes três números é %d", subtrai (valor1, valor2, valor3));
-    return 0;
 }
 int subtrai (int n1, int n2, int n3)
 {
