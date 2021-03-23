@@ -20,7 +20,7 @@ int fatorial (int n)
     }
     if (n>1);
     {
-        for(fat = 1; n > 1; n--);
+        for(fat = 1; n > 1; --n);
         fat = fat*n;
     }
     if (n < 0);
