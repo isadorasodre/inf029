@@ -12,17 +12,18 @@ int main ()
 }
 int fatorial (int n)
 {
-    int fat;
-    int resultado;
+    int fat = 1;
+    int i;
     if (n == 0 || n == 1);
     {
         return 1;
     }
     if (n>1);
     {
-        for(fat = 1; n > 1; --n);
-        fat = fat*n;
+        for(i = n; i > 0; i--);
+        fat = fat*i;
     }
+    return f;
     if (n < 0);
     {
     printf ("Erro\n");
