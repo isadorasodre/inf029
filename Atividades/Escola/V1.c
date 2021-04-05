@@ -40,10 +40,32 @@ void cadastroaluno (){
         char sexoaluno [5];
         int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
         long long int cpfaluno;
+        int okdia = 0;
+        int oksexo = 0;
+        int okmes = 0;
+        int okano = 0;
+        int okcpf = 0;
         printf("Digite o nome do aluno: \n");
         fgets (nomealuno, sizeof(nomealuno), stdin);
-        printf ("Digite o sexo do aluno: \n");
+        printf ("Digite o sexo do aluno (M OU F): \n");
         fgets (sexoaluno, sizeof(sexoaluno), stdin);
-        if (strcpm (sexoaluno, sexo1 != 0) && strcpm (sexoaluno, sexo2 != 0) && strcpm )
+        if (strcpm (sexoaluno, sexo1 != 0) && strcpm (sexoaluno, sexo2 != 0) && strcpm (sexoaluno, sexo3 != 0) && strcpm (sexoaluno, sexo4 != 0))
+        {
+            oksexo = 1
+            while (oksexo == 1)
+            {
+            prinft("O sexo é inválido. Digite novamente  M OU F: \n");
+            fgets (sexoaluno, sizeof(sexoaluno), stdin);
+            }
+        }
+        else
+        {
+            printf("O sexo é válido\n ");
+        }
+        printf ("Digite o cpf: \n");
+        scanf("%lld", &cpfaluno);
+        printf("Digite o dia do aniversário: ");
+        scanf ("%d", &diaaluno);
+
         
     }
