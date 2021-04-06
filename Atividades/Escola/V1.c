@@ -13,18 +13,42 @@ typedef struct {
     long long int cpfaluno;
 } aluno
 aluno cadalunos (max_alunos);
-void cadastroaluno();
-void cadastroprofi();
-void cadastrodisciplina();
-void listaalunos();
-void removealunos();
 int main (void)
 {
-    int opçãocadastro; 
+    int opção; 
+    do  {
+
     printf("********** BEM-VINDO AO PROJETO ESCOLA - LABORATÓRIO DE PROGRAMACAO **********\n");
     printf("ESCOLHA O QUE DESEJA FAZER\n");
-    printf //aqui preciso colocar a lista com todas as opções
-    scanf("%d", &opçãocadastro);
+    printf("\n        1-  Cadastrar alunos  *\n");
+	printf("\n        2-  Criar lista de alunos *\n");
+	printf("\n        3-  Ver a quantidade de alunso cadastrados *\n");
+	printf("\n        4-  Excluir alunos da disciplina *\n");
+	printf("\n        5-  Mostrar lisa de alunos *\n");
+	printf("\n        6-  Mostrar lista de alunos do sexo masculino*\n");
+	printf("\n        7-  Mostrar lista de alunos do sexo feminino *\n");
+    printf("\n        8-  Motrar lista de alunos por ordem alfabética*\n");
+    printf("\n        9-  Listar alunos por ordem de nascimento*\n");
+    printf("\n        10- Criar lista de disciplinas*\n");
+	printf("\n        12- Cadastrar disciplina*\n");
+	printf("\n        13- Listar dados da disciplinas sem alunos *\n");
+    printf("\n        14- Listar uma disciplina *\n");
+    printf("\n        15- Criar lista de professores *\n");
+	printf("\n        16- Cadastrar professores  *\n");
+	printf("\n        17- Mostrar lista de professores *\n");
+	printf("\n        18- Mostrar lista de professores do sexo masculino*\n");
+    printf("\n        19- Mostrar lista de professores do sexo feminino *\n");
+    printf("\n        20- Mostrar lista de professores por ordem alfabetica *\n");
+	printf("\n        21- Mostrar lista de professores por ordem de nascimento*\n");
+    printf("\n        22- Mostrar professores aniversariantes do mes soicitiado *\n");
+	printf("\n        23- Excluir Disciplina*\n");
+	printf("\n        24- Excluir professor  *\n");
+	printf("\n        25- Atualizar dado de alunos (as)  *\n");
+    printf("\n        26- Atualizar dados das  disciplinas*\n");
+	printf("\n        27- Atualizar dados dos professores*\n");
+    printf("\n        28- Ver quantidades de professores *\n");	
+    printf("\n        29- SAIR *\n");
+    scanf("%d", &opção);
     switch (opção)
     {
         case 1:
@@ -33,7 +57,7 @@ int main (void)
         }
 
     }
-    
+        }while(opção != 29); 
 }
 void cadastroaluno (){
         char nomealuno [200];
@@ -64,8 +88,66 @@ void cadastroaluno (){
         }
         printf ("Digite o cpf: \n");
         scanf("%lld", &cpfaluno);
-        printf("Digite o dia do aniversário: ");
+        if (cpf > 999999999)
+         {
+            okcpf = 1;
+            while (okcpf == 1)
+            {
+            prinft("O cpf eh invalido. Digite novamente: \n");
+            scanf("%lld", &cpfaluno);
+            }
+        }
+        else
+        {
+            printf("O cpf eh valido\n");
+        }
+        printf("Digite o dia do nascimento: ");
         scanf ("%d", &diaaluno);
+        if (diaaluno < 1 && diaaluno > 31);
+        {
+            okdia = 1;
+            while (okdia == 1)
+            {
+            prinft("O dia do nascimento é invalido. Digite novamente: \n");
+            scanf ("%d", &diaaluno);
+            }
 
-        
+        }
+        else 
+        {
+            prinft("A dia de nascimento eh valido\n");
+        }
+        printf("Digite o mês de nascimento: ");
+        scanf ("%d", &mesaluno);
+        if (mesaluno < 1 && mesaluno > 12);
+        {
+            okmes = 1;
+            while (okmes == 1)
+            {
+            prinft("O mes do nascimento eh invalido. Digite novamente: \n");
+            scanf ("%d", &mesaluno);
+            }
+
+        }
+        else 
+        {
+            prinft("A mes de nascimento é válido\n");
+        }
+        printf("Digite o ano de nascimento: ");
+        scanf ("%d", &anoaluno);
+        if (mesaluno < 1 && mesaluno > 12);
+        {
+            okmes = 1;
+            while (okmes == 1)
+            {
+            prinft("O mes do nascimento eh invalido. Digite novamente: \n");
+            scanf ("%d", &mesaluno);
+            }
+
+        }
+        else 
+        {
+            prinft("A mes de nascimento é válido\n");
+        }
+        printf ("")
     }
