@@ -62,7 +62,7 @@ int main (void)
 void cadastroaluno (){
         char nomealuno [200];
         char sexoaluno [5];
-        int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
+        int diaaluno, mesaluno, anoaluno, matriculaaluno;
         long long int cpfaluno;
         int okdia = 0;
         int oksexo = 0;
@@ -149,5 +149,6 @@ void cadastroaluno (){
         {
             prinft("A mes de nascimento é válido\n");
         }
-        printf ("")
+        print ("Gerando número de matricula de aluno");
+        matriculaaluno = matriculaaluno ++;
     }
