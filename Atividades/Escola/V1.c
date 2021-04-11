@@ -11,52 +11,54 @@ typedef struct {
     int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
     long long int cpfaluno;
 } Aluno;
-Aluno cadalunos ()
-int main (void)
-{
-    int opcao; 
-    do  {
-
-    printf("********** BEM-VINDO AO PROJETO ESCOLA - LABORATÓRIO DE PROGRAMACAO **********\n");
-    printf("ESCOLHA O QUE DESEJA FAZER\n");
-    printf("\n        1-  Cadastrar alunos  *\n");
-	printf("\n        2-  Criar lista de alunos *\n");
-	printf("\n        3-  Ver a quantidade de alunos cadastrados *\n");
-	printf("\n        4-  Excluir alunos da disciplina *\n");
-	printf("\n        5-  Mostrar lisa de alunos *\n");
-	printf("\n        6-  Mostrar lista de alunos do sexo masculino*\n");
-	printf("\n        7-  Mostrar lista de alunos do sexo feminino *\n");
-    printf("\n        8-  Motrar lista de alunos por ordem alfabética*\n");
-    printf("\n        9-  Listar alunos por ordem de nascimento*\n");
-    printf("\n        10- Criar lista de disciplinas*\n");
-	printf("\n        12- Cadastrar disciplina*\n");
-	printf("\n        13- Listar dados da disciplinas sem alunos *\n");
-    printf("\n        14- Listar uma disciplina *\n");
-    printf("\n        15- Criar lista de professores *\n");
-	printf("\n        16- Cadastrar professores  *\n");
-	printf("\n        17- Mostrar lista de professores *\n");
-	printf("\n        18- Mostrar lista de professores do sexo masculino*\n");
-    printf("\n        19- Mostrar lista de professores do sexo feminino *\n");
-    printf("\n        20- Mostrar lista de professores por ordem alfabetica *\n");
-	printf("\n        21- Mostrar lista de professores por ordem de nascimento*\n");
-    printf("\n        22- Mostrar professores aniversariantes do mes soicitiado *\n");
-	printf("\n        23- Excluir Disciplina*\n");
-	printf("\n        24- Excluir professor  *\n");
-	printf("\n        25- Atualizar dado de alunos (as)  *\n");
-    printf("\n        26- Atualizar dados das  disciplinas*\n");
-	printf("\n        27- Atualizar dados dos professores*\n");
-    printf("\n        28- Ver quantidades de professores *\n");	
-    printf("\n        29- SAIR *\n");
-    scanf("%d", &opcao);
-    switch (opcao)
-    {
-        case 1:
+Aluno aluno [];
+int cadalunos (Aluno listaAlunos[], int qtd);
+void listarAluno(Aluno listaAlunos[], int qtd);
+int main ()
         {
-            cadastroaluno ();
+
+        int opcao; 
+        printf("********** BEM-VINDO AO PROJETO ESCOLA - LABORATÓRIO DE PROGRAMACAO **********\n");
+        printf("ESCOLHA O QUE DESEJA FAZER\n");
+        printf("\n        1-  Cadastrar alunos  *\n");
+        printf("\n        2-  Criar lista de alunos *\n");
+        printf("\n        3-  Ver a quantidade de alunos cadastrados *\n");
+        printf("\n        4-  Excluir alunos da disciplina *\n");
+        printf("\n        5-  Mostrar lisa de alunos *\n");
+        printf("\n        6-  Mostrar lista de alunos do sexo masculino*\n");
+        printf("\n        7-  Mostrar lista de alunos do sexo feminino *\n");
+        printf("\n        8-  Motrar lista de alunos por ordem alfabética*\n");
+        printf("\n        9-  Listar alunos por ordem de nascimento*\n");
+        printf("\n        10- Criar lista de disciplinas*\n");
+        printf("\n        12- Cadastrar disciplina*\n");
+        printf("\n        13- Listar dados da disciplinas sem alunos *\n");
+        printf("\n        14- Listar uma disciplina *\n");
+        printf("\n        15- Criar lista de professores *\n");
+        printf("\n        16- Cadastrar professores  *\n");
+        printf("\n        17- Mostrar lista de professores *\n");
+        printf("\n        18- Mostrar lista de professores do sexo masculino*\n");
+        printf("\n        19- Mostrar lista de professores do sexo feminino *\n");
+        printf("\n        20- Mostrar lista de professores por ordem alfabetica *\n");
+        printf("\n        21- Mostrar lista de professores por ordem de nascimento*\n");
+        printf("\n        22- Mostrar professores aniversariantes do mes soicitiado *\n");
+        printf("\n        23- Excluir Disciplina*\n");
+        printf("\n        24- Excluir professor  *\n");
+        printf("\n        25- Atualizar dado de alunos (as)  *\n");
+        printf("\n        26- Atualizar dados das  disciplinas*\n");
+        printf("\n        27- Atualizar dados dos professores*\n");
+        printf("\n        28- Ver quantidades de professores *\n");	
+        printf("\n        29- SAIR *\n");
+        scanf("%d", &opcao);
+        switch (opcao)
+        {
+            case 1:
+            {
+                cadastroaluno ();
+            }
+            return 0;
         }
-        return 0;
-}
-void cadastroaluno ()
+        }
+    int cadalunos ()
 {
         char nomealuno [200];
         char sexoaluno [5];
@@ -150,4 +152,5 @@ void cadastroaluno ()
         }
         print ("Gerando número de matricula de aluno\n");
         matriculaaluno = matriculaaluno ++;
-        }
+        return 0;
+}
