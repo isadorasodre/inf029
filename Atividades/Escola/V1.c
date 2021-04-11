@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define max_alunos = 200
 char sexo1[4] = "M";
 char sexo2[4] = "m";
 char sexo3[4] = "F";
@@ -12,7 +11,7 @@ typedef struct {
     int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
     long long int cpfaluno;
 } Aluno;
-Aluno cadalunos (max_alunos)
+Aluno cadalunos ()
 int main (void)
 {
     int opcao; 
@@ -22,7 +21,7 @@ int main (void)
     printf("ESCOLHA O QUE DESEJA FAZER\n");
     printf("\n        1-  Cadastrar alunos  *\n");
 	printf("\n        2-  Criar lista de alunos *\n");
-	printf("\n        3-  Ver a quantidade de alunos  cadastrados *\n");
+	printf("\n        3-  Ver a quantidade de alunos cadastrados *\n");
 	printf("\n        4-  Excluir alunos da disciplina *\n");
 	printf("\n        5-  Mostrar lisa de alunos *\n");
 	printf("\n        6-  Mostrar lista de alunos do sexo masculino*\n");
@@ -55,11 +54,10 @@ int main (void)
         {
             cadastroaluno ();
         }
-
-    }
-        }while(opcao != 29); 
+        return 0;
 }
-void cadastroaluno (){
+void cadastroaluno ()
+{
         char nomealuno [200];
         char sexoaluno [5];
         int diaaluno, mesaluno, anoaluno, matriculaaluno;
@@ -130,13 +128,14 @@ void cadastroaluno (){
             }
 
         }
-        if (/* condition */)
+        if (mesaluno >= 1 && mesaluno <= 12)
         {
             prinft("A mes de nascimento é válido\n");
         }
+
         printf("Digite o ano de nascimento: ");
         scanf ("%d", &anoaluno);
-        if (mesaluno < 1 && mesaluno > 12);
+        if (anoaluno < 1915 && anoaluno > 2021);
         {
             okmes = 1;
             while (okmes == 1)
@@ -145,10 +144,10 @@ void cadastroaluno (){
             scanf ("%d", &mesaluno);
             }
         }
-        else 
+        if (anoaluno >= 1915 && anoaluno <= 2021)
         {
-            prinft("A mes de nascimento é válido\n");
+            prinft("A ano de nascimento é válido\n");
         }
         print ("Gerando número de matricula de aluno\n");
         matriculaaluno = matriculaaluno ++;
-    }
+        }
