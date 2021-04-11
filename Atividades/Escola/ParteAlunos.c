@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <stdint.h>
+#include <string.h>
 //definição de constantes
 char sexo1[4] = "M";
 char sexo2[4] = "m";
@@ -43,10 +44,10 @@ typedef struct aluno_disciplina{
 } alunodisciplina;
 
 // declaração de vetores das structs
-professor lista_professores [];
-aluno lista_alunos [];
-disciplina lista_disciplinas [];
-alunodisciplina lista_matricula [];
+professor lista_professores [5];
+aluno lista_alunos [5];
+disciplina lista_disciplinas [5];
+alunodisciplina lista_matricula [5];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
@@ -57,7 +58,7 @@ int conferirdata (int mes, int dia, int ano);
 int validacpf (long long int cpf);
 
 //variáveis globais
-int qtalunos, qtprofessores, qtdisciplinas = 0;
+int qtalunos, qtprofessores, qtdisciplinas, qtdisciplinasalunos;
 
 int main (){
     int op;
@@ -106,7 +107,21 @@ void alunos ()
         {
             printf("O sexo é válido\n ");
         }
-    
+    printf("Digite o cpf do aluno: ");
+    scanf("%lld", &lista_alunos[qtalunos].cpfaluno);
+        if (lista_alunos[qtalunos].cpfaluno > 999999999)
+         {
+            okcpf = 1;
+            while (okcpf == 1)
+            {
+            printf ("O cpf eh invalido. Digite novamente: \n");
+            scanf("%lld", lista_alunos[qtalunos].cpfaluno);
+            }
+        }
+        else
+        {
+            printf("O cpf eh valido\n");
+        }
 }
 
   
