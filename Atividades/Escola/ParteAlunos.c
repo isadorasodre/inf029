@@ -43,13 +43,14 @@ typedef struct aluno_disciplina{
 } alunodisciplina;
 
 // declaração de vetores das structs
-professor lista_professores [qtprofessores];
-aluno lista_alunos [qtalunos];
-disciplina lista_disciplinas [qtdisciplinas];
-alunodisciplina lista_matricula [alunopordisciplina];
+professor lista_professores [];
+aluno lista_alunos [];
+disciplina lista_disciplinas [];
+alunodisciplina lista_matricula [];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
+void alunos ();
 void professores ();
 void listarprofessores ();
 int conferirdata (int mes, int dia, int ano);
@@ -72,7 +73,7 @@ int main (){
         {
             case 1:
             {
-                cadastraralunos ();
+                alunos ();
             }
             return 0;
         }   
@@ -81,24 +82,24 @@ int main (){
     return 0;
 }
 
-void aluno ()
+void alunos ()
 {
-    int sexook = 0
-    int cpfok = 0
+    int oksexo = 0;
+    int okcpf = 0;
     printf ("Vocês escolheu a lista de cadastro de alunos\n");
-    prinft ("Digite o nome do aluno\n");
+    printf ("Digite o nome do aluno\n");
     setbuf(stdin, NULL);
 	fgets(lista_alunos[qtalunos].nomealuno, 100, stdin);
     printf ("Insira o sexo do aluno -  M ou F: \n");
     setbuf(stdin, NULL);
 	fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
-    if (strcpm (sexoaluno, sexo1 != 0) && strcpm (sexoaluno, sexo2 != 0) && strcpm (sexoaluno, sexo3 != 0) && strcpm (sexoaluno, sexo4 != 0))
+    if (strcpm (lista_alunos[qtalunos].sexoaluno, sexo1 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo2 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo3 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo4 != 0))
         {
             oksexo = 1;
             while (oksexo == 1)
             {
-            prinft ("O sexo é inválido. Digite novamente  M OU F: \n");
-            fgets (sexoaluno, sizeof(sexoaluno), stdin);
+            printf ("O sexo é inválido. Digite novamente  M OU F: \n");
+            fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
             }
         }
         else
