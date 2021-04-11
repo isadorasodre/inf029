@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stlib.h>
+#include <stdlib.h>
 #include <string.h>
 #define max_alunos = 200
 char sexo1[4] = "M";
@@ -11,18 +11,18 @@ typedef struct {
     char sexoaluno [5];
     int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
     long long int cpfaluno;
-} aluno
-aluno cadalunos (max_alunos);
+} Aluno;
+Aluno cadalunos (max_alunos)
 int main (void)
 {
-    int opção; 
+    int opcao; 
     do  {
 
     printf("********** BEM-VINDO AO PROJETO ESCOLA - LABORATÓRIO DE PROGRAMACAO **********\n");
     printf("ESCOLHA O QUE DESEJA FAZER\n");
     printf("\n        1-  Cadastrar alunos  *\n");
 	printf("\n        2-  Criar lista de alunos *\n");
-	printf("\n        3-  Ver a quantidade de alunso cadastrados *\n");
+	printf("\n        3-  Ver a quantidade de alunos  cadastrados *\n");
 	printf("\n        4-  Excluir alunos da disciplina *\n");
 	printf("\n        5-  Mostrar lisa de alunos *\n");
 	printf("\n        6-  Mostrar lista de alunos do sexo masculino*\n");
@@ -48,8 +48,8 @@ int main (void)
 	printf("\n        27- Atualizar dados dos professores*\n");
     printf("\n        28- Ver quantidades de professores *\n");	
     printf("\n        29- SAIR *\n");
-    scanf("%d", &opção);
-    switch (opção)
+    scanf("%d", &opcao);
+    switch (opcao)
     {
         case 1:
         {
@@ -57,7 +57,7 @@ int main (void)
         }
 
     }
-        }while(opção != 29); 
+        }while(opcao != 29); 
 }
 void cadastroaluno (){
         char nomealuno [200];
@@ -75,10 +75,10 @@ void cadastroaluno (){
         fgets (sexoaluno, sizeof(sexoaluno), stdin);
         if (strcpm (sexoaluno, sexo1 != 0) && strcpm (sexoaluno, sexo2 != 0) && strcpm (sexoaluno, sexo3 != 0) && strcpm (sexoaluno, sexo4 != 0))
         {
-            oksexo = 1
+            oksexo = 1;
             while (oksexo == 1)
             {
-            prinft("O sexo é inválido. Digite novamente  M OU F: \n");
+            prinft ("O sexo é inválido. Digite novamente  M OU F: \n");
             fgets (sexoaluno, sizeof(sexoaluno), stdin);
             }
         }
@@ -88,7 +88,7 @@ void cadastroaluno (){
         }
         printf ("Digite o cpf: \n");
         scanf("%lld", &cpfaluno);
-        if (cpf > 999999999)
+        if (cpfaluno > 999999999)
          {
             okcpf = 1;
             while (okcpf == 1)
@@ -113,10 +113,11 @@ void cadastroaluno (){
             }
 
         }
-        else 
+        if (diaaluno > 1 && diaaluno <= 31)
         {
             prinft("A dia de nascimento eh valido\n");
         }
+        
         printf("Digite o mês de nascimento: ");
         scanf ("%d", &mesaluno);
         if (mesaluno < 1 && mesaluno > 12);
@@ -129,7 +130,7 @@ void cadastroaluno (){
             }
 
         }
-        else 
+        if (/* condition */)
         {
             prinft("A mes de nascimento é válido\n");
         }
@@ -143,12 +144,11 @@ void cadastroaluno (){
             prinft("O mes do nascimento eh invalido. Digite novamente: \n");
             scanf ("%d", &mesaluno);
             }
-
         }
         else 
         {
             prinft("A mes de nascimento é válido\n");
         }
-        print ("Gerando número de matricula de aluno");
+        print ("Gerando número de matricula de aluno\n");
         matriculaaluno = matriculaaluno ++;
     }
