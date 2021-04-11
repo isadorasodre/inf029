@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define maxalunos [100]
 char sexo1[4] = "M";
 char sexo2[4] = "m";
 char sexo3[4] = "F";
@@ -12,7 +11,7 @@ typedef struct {
     int diaaluno, mesaluno, anoaluno, matriculaaluno, consta;
     long long int cpfaluno;
 } Aluno;
-Aluno alunos [maxalunos];
+Aluno alunos [];
 int cadalunos (Aluno listaAlunos[], int qtd);
 void listarAluno(Aluno listaAlunos[], int qtd);
 int main ()
@@ -153,13 +152,13 @@ int main ()
         {
             prinft("A ano de nascimento é válido\n");
         }
-        print ("Gerando número de matricula de aluno\n");
+        printf ("Gerando número de matricula de aluno\n");
         matriculaaluno = matriculaaluno ++;
-        for ( i = 0; i < maxalunos; i++)
+        for ( i = 0; i < 50; i++)
         {
             strcpy(alunos[i].nomealuno, nomealuno);
             strcpy(alunos[i].sexoaluno, sexoaluno);
         }
-        
+
         return 0;
 }
