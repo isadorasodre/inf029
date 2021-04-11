@@ -37,6 +37,13 @@ typedef struct aluno_disciplina{
     int codad;
 } alunodisciplina;
 
+professor lista_professores [qtprofessores];
+aluno lista_alunos [qtalunos];
+disciplina lista_disciplinas [qtdisciplinas];
+alunodisciplina lista_matricula [alunopordisciplina];
+
+
+
 int main (){
     int op;
     cadastroaluno alunos [4];
