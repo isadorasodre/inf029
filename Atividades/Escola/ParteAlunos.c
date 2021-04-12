@@ -67,7 +67,7 @@ void alunos ();
 void professores ();
 void listarprofessores ();
 int datacadastraaluno ();
-int datacadastraprofessor (int okdataprof);
+int datacadastraprofessor ();
 
 //variáveis globais
 int qtalunos = 0, qtprofessores = 0, qtdisciplinas = 0, qtdisciplinasalunos = 0;
@@ -186,5 +186,14 @@ void alunos ()
     printf("O cadastro foi computado com sucesso!\n");
     qtalunos ++;
 }
+void listaralunos ()
+{
+    int i 
+    for (i = 0; i < qtalunos; i++)
+    {
+        
+    }
 
+
+}
   
