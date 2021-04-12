@@ -82,21 +82,33 @@ int main (){
     printf ("1 - CADASTRO DE ALUNOS\n");
     printf ("2 - LISTAR ALUNOS\n");
     printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n")
-    printf ("3 - SAIR DO PROGRAMA \n");
+    printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n")
+    printf ("5 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
             case 1:
             {
+                 printf("CADASTRE OS ALUNOS: ")
                 alunos ();
             }
             case 2:
             {
+                printf("LISTA COMPLETA DE ALUNOS: ")
                 listaralunos();
             }
-            return 0;
+            case 3:
+            {
+                printf("ALUNOS DO SEXO MASCULINO: ")
+                listaalunosmasculino();
+            }
+            case 4:
+            {
+                printf("ALUNOS DO SEXO MASCULINO: ")
+                listaalunosmasculino();
+            }
         }   
-    }while (op != 4);
+    }while (op != 5);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
