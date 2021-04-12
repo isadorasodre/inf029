@@ -57,7 +57,8 @@ void professores ();
 void listarprofessores ();
 int conferirdata (int mes, int dia, int ano);
 int validacpf (long long int cpf);
-void cadastradata ();
+void cadastradataaluno ();
+void cadastradataprofessor ();
 
 //variáveis globais
 int qtalunos, qtprofessores, qtdisciplinas, qtdisciplinasalunos;
@@ -84,6 +85,12 @@ int main (){
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
+
+void cadastradataaluno ()
+{
+    prinft
+}
+
 
 void alunos ()
 {
@@ -127,7 +134,7 @@ void alunos ()
     printf ("Gerando número de matrícula\n");
     lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++
     printf("Digite a data de completa de nascimento do aluno: \n");
-
+    data ();
 }
 
   
