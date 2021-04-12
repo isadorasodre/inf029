@@ -66,7 +66,7 @@ void listaralunos ();
 void alunos ();
 void professores ();
 void listarprofessores ();
-int datacadastraaluno (int okdataaluno);
+int datacadastraaluno ();
 int datacadastraprofessor (int okdataprof);
 
 //variáveis globais
@@ -98,55 +98,50 @@ int main (){
     return 0;
 }
 
-int datacadastraaluno (int okdataaluno)
+int datacadastraaluno ()
 {
-    int okdataaluno = 0;
-    int ok = 0
-    printf("Digite o dia em que você nasceu: \n";
-    scanf("%d", &datasaluno[qtalunos].diaaluno);
+    int ok = 0;
+    printf("Digite o dia em que você nasceu: \n");
+    scanf("%d", &datasaluno[qtalunos].dia);
     
-    if (datasaluno[numalunos].diaaluno < 1 && datasaluno[numalunos].diaaluno > 31)
+    if (datasaluno[numalunos].dia < 1 && datasaluno[numalunos].dia > 31)
     {
         printf("A dia é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[numalunos].diaaluno);
+        scanf("%d", &datasaluno[numalunos].dia);
     }
     else {
-        prinft("O dia é válido\n");
-        ok = ok++
+        printf("O dia é válido\n");
+        ok = ok++;
     }
-    printf("Digite o mes em que você nasceu: \n";
-    scanf("%d", &datasaluno[qtalunos].mesaluno);
-    if (datasaluno[numalunos].mesaluno < 1 && datasaluno[numalunos].mesaluno > 12)
+    printf("Digite o mes em que você nasceu: \n");
+    scanf("%d", &datasaluno[qtalunos].mes);
+    if (datasaluno[numalunos].mes < 1 && datasaluno[numalunos].mes > 12)
     {
         printf("A mes é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[numalunos].mesaluno);
+        scanf("%d", &datasaluno[numalunos].mes);
     }
     else 
     {
-        prinft("O mes é válido\n");
-        ok = ok++
+        printf("O mes é válido\n");
+        ok = ok++;
     }
-    printf("Digite o ano em que você nasceu: \n";
-    scanf("%d", &datasaluno[numalunos].anoaluno);
-    if (datasaluno[numalunos].anoaluno < 1 && datasaluno[numalunos].anoaluno > 12)
+    printf("Digite o ano em que você nasceu: \n");
+    scanf("%d", &datasaluno[numalunos].ano);
+    if (datasaluno[numalunos].ano < 1 && datasaluno[numalunos].ano > 12)
     {
         printf("A mes é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[numalunos].anoaluno);
+        scanf("%d", &datasaluno[numalunos].ano);
     }
     else 
     {
-        prinft("O ano é válido\n");
-        ok = ok++
+        printf("O ano é válido\n");
     }
-    if (ok == 3)
-    {
-        okdataaluno = 1
-        return okdataaluno;
-    }
+    return 0;
 }
 
 void alunos ()
 {
+    int cadastradataaluno ();
     int oksexo = 0;
     int okcpf = 0;
     printf ("Vocês escolheu a lista de cadastro de alunos\n");
@@ -185,14 +180,11 @@ void alunos ()
             printf("O cpf eh valido\n");
         }
     printf ("Gerando número de matrícula\n");
-    lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++
+    lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++;
     printf("Digite a data de completa de nascimento do aluno: \n");
-    cadastradataaluno ();
-    if (okdataaluno = 1)
-    {
-        printf("O cadastro foi computado com sucesso!\n")
-        qtalunos ++;
-    }
+    datacadastraaluno ();
+    printf("O cadastro foi computado com sucesso!\n");
+    qtalunos ++;
 }
 
   
