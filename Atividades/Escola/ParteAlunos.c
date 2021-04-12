@@ -87,6 +87,10 @@ int main (){
             {
                 alunos ();
             }
+            case 2:
+            {
+                listaralunos();
+            }
             return 0;
         }   
     }while (op != 3);
