@@ -204,11 +204,20 @@ void listaralunos ()
 
 
 }
-void listaalunossexo()
+void listaalunosmasculino ()
 {
     int i 
-    for (i =; i < qtalunos; i++)
+    for (i=0; i<qtalunos; i++)
     {
-        if (strcpm)
+		if(lista_data[i].sexoaluno == 'M' && listaalunos[i].sexoaluno == 'm')
+		printf("%s\n", lista_alunos[i].nomealuno);
+    }
+}
+void listaalunofeminino ()
+{
+    for (i=0; i<qtalunos; i++)
+    {
+        if(lista_data[i].sexoaluno == 'F' && listaalunos[i].sexoaluno == 'f')
+        printf("%s\n", lista_alunos[i].nomealuno);
     }
 }
