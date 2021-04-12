@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <stdint.h>
 #include <string.h>
+
 //definição dos valores dos vetores
 #define numprofessores 6
 #define numalunos 5
@@ -15,6 +16,7 @@ char sexo1[4] = "M";
 char sexo2[4] = "m";
 char sexo3[4] = "F";
 char sexo4[4] = "f";
+
 //declaração de estruturas - data, professor, aluno, disciplina e aluno por disciplina
 typedef struct dados_dada{
     int dia;
@@ -50,7 +52,7 @@ typedef struct aluno_disciplina{
     int codad;
 } alunodisciplina;
 
-// declaração de vetores das structs
+//declaração de vetores das structs
 professor lista_professores [numprofessores];
 aluno lista_alunos [numalunos];
 disciplina lista_disciplinas [numdisciplinas];
@@ -64,11 +66,11 @@ void listaralunos ();
 void alunos ();
 void professores ();
 void listarprofessores ();
-void cadastradataaluno ();
-void cadastradataprofessor ();
+int datacadastraaluno (int okdataaluno);
+int datacadastraprofessor (int okdataprof);
 
 //variáveis globais
-int qtalunos, qtprofessores, qtdisciplinas, qtdisciplinasalunos = 0;
+int qtalunos = 0, qtprofessores = 0, qtdisciplinas = 0, qtdisciplinasalunos = 0;
 
 int main (){
     int op;
@@ -92,19 +94,50 @@ int main (){
     return 0;
 }
 
-void cadastradataaluno ()
+int datacadastraaluno (int okdataaluno)
 {
+    int okdataaluno = 0;
+    int ok = 0
     printf("Digite o dia em que você nasceu: \n";
     scanf("%d", &datasaluno[qtalunos].diaaluno);
-    if (datasaluno[qtalunos].diaaluno < 1 && datasaluno[qtalunos].diaaluno > 31)
+    
+    if (datasaluno[numalunos].diaaluno < 1 && datasaluno[numalunos].diaaluno > 31)
     {
-        printf("A data é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[qtalunos].diaaluno);
+        printf("A dia é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[numalunos].diaaluno);
     }
-    printf("Digite o mês em que você nasceu: \n";
+    else {
+        prinft("O dia é válido\n");
+        ok = ok++
+    }
+    printf("Digite o mes em que você nasceu: \n";
     scanf("%d", &datasaluno[qtalunos].mesaluno);
+    if (datasaluno[numalunos].mesaluno < 1 && datasaluno[numalunos].mesaluno > 12)
+    {
+        printf("A mes é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[numalunos].mesaluno);
+    }
+    else 
+    {
+        prinft("O mes é válido\n");
+        ok = ok++
+    }
     printf("Digite o ano em que você nasceu: \n";
-    scanf("%d", &datasaluno[qtalunos].anoaluno);
+    scanf("%d", &datasaluno[numalunos].anoaluno);
+    if (datasaluno[numalunos].anoaluno < 1 && datasaluno[numalunos].anoaluno > 12)
+    {
+        printf("A mes é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[numalunos].anoaluno);
+    }
+    else 
+    {
+        prinft("O ano é válido\n");
+        ok = ok++
+    }
+    if (ok == 3)
+    {
+        return okdataaluno = 1;
+    }
 }
 
 void alunos ()
