@@ -187,6 +187,7 @@ void alunos ()
     if (okdataaluno = 1)
     {
         printf("O cadastro foi computado com sucesso!\n")
+        qtalunos ++;
     }
 }
 
