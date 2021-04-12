@@ -49,6 +49,7 @@ aluno lista_alunos [5];
 disciplina lista_disciplinas [5];
 alunodisciplina lista_matricula [5];
 data lista_data[10];
+data datasaluno[5];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
@@ -88,7 +89,17 @@ int main (){
 
 void cadastradataaluno ()
 {
-    prinft
+    printf("Digite o dia em que você nasceu: \n";
+    scanf("%d", &datasaluno[qtalunos].diaaluno);
+    printf("Digite o mês em que você nasceu: \n";
+    scanf("%d", &datasaluno[qtalunos].mesaluno);
+    printf("Digite o ano em que você nasceu: \n";
+    scanf("%d", &datasaluno[qtalunos].anoaluno);
+}
+
+int conferirdata (int mes, int dia, int ano)
+{
+    
 }
 
 
