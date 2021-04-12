@@ -3,7 +3,14 @@
 #include <conio.h>
 #include <stdint.h>
 #include <string.h>
-//definição de constantes
+//definição dos valores dos vetores
+#define numprofessores 6
+#define numalunos 5
+#define numdisciplinas 5
+#define alundisciplinas 40
+#define datastodos 11
+
+//definição de constantes para testes de char de sexo de professores e alunos
 char sexo1[4] = "M";
 char sexo2[4] = "m";
 char sexo3[4] = "F";
@@ -20,7 +27,7 @@ typedef struct dados_aluno {
     char sexoaluno [10];
     long long int cpfaluno;
     int matriculaaluno;
-    data datanascimento;
+    data datanascimentoa;
 } aluno;
 
 typedef struct dados_professor {
@@ -28,7 +35,7 @@ typedef struct dados_professor {
     char sexoprof [10];
     long long int cpfprof;
     int matriculaaluno;
-    data datanascimento;
+    data datanascimentop;
 } professor;
 
 typedef struct dados_disciplina {
@@ -44,29 +51,27 @@ typedef struct aluno_disciplina{
 } alunodisciplina;
 
 // declaração de vetores das structs
-professor lista_professores [5];
-aluno lista_alunos [5];
-disciplina lista_disciplinas [5];
-alunodisciplina lista_matricula [5];
-data lista_data[10];
-data datasaluno[5];
+professor lista_professores [numprofessores];
+aluno lista_alunos [numalunos];
+disciplina lista_disciplinas [numdisciplinas];
+alunodisciplina lista_matricula [alundisciplinas];
+data lista_data[datastodos];
+data datasaluno[numalunos];
+data datasprofessores [numprofessores];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
 void alunos ();
 void professores ();
 void listarprofessores ();
-int conferirdata (int mes, int dia, int ano);
-int validacpf (long long int cpf);
 void cadastradataaluno ();
 void cadastradataprofessor ();
 
 //variáveis globais
-int qtalunos, qtprofessores, qtdisciplinas, qtdisciplinasalunos;
+int qtalunos, qtprofessores, qtdisciplinas, qtdisciplinasalunos = 0;
 
 int main (){
     int op;
-    return 0;
     do{
     printf ("*****BEM-VINDO AO PROJETO ESCOLA\n");
     printf ("ESCOLHA UMA OPÇÃO\n");
@@ -91,17 +96,16 @@ void cadastradataaluno ()
 {
     printf("Digite o dia em que você nasceu: \n";
     scanf("%d", &datasaluno[qtalunos].diaaluno);
+    if (datasaluno[qtalunos].diaaluno < 1 && datasaluno[qtalunos].diaaluno > 31)
+    {
+        printf("A data é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[qtalunos].diaaluno);
+    }
     printf("Digite o mês em que você nasceu: \n";
     scanf("%d", &datasaluno[qtalunos].mesaluno);
     printf("Digite o ano em que você nasceu: \n";
     scanf("%d", &datasaluno[qtalunos].anoaluno);
 }
-
-int conferirdata (int mes, int dia, int ano)
-{
-    
-}
-
 
 void alunos ()
 {
@@ -145,7 +149,7 @@ void alunos ()
     printf ("Gerando número de matrícula\n");
     lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++
     printf("Digite a data de completa de nascimento do aluno: \n");
-    data ();
+    cadastradataaluno ();
 }
 
   
