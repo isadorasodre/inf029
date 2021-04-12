@@ -48,6 +48,8 @@ professor lista_professores [5];
 aluno lista_alunos [5];
 disciplina lista_disciplinas [5];
 alunodisciplina lista_matricula [5];
+aluno dataaluno[5];
+professor dataprofesssor[5];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
@@ -122,6 +124,10 @@ void alunos ()
         {
             printf("O cpf eh valido\n");
         }
+    printf ("Gerando número de matrícula\n");
+    lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++
+    printf("Digite a data de completa de nascimento do aluno: \n");
+    data
 }
 
   
