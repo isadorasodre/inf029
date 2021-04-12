@@ -136,7 +136,8 @@ int datacadastraaluno (int okdataaluno)
     }
     if (ok == 3)
     {
-        return okdataaluno = 1;
+        okdataaluno = 1
+        return okdataaluno;
     }
 }
 
@@ -183,6 +184,10 @@ void alunos ()
     lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++
     printf("Digite a data de completa de nascimento do aluno: \n");
     cadastradataaluno ();
+    if (okdataaluno = 1)
+    {
+        printf("O cadastro foi computado com sucesso!\n")
+    }
 }
 
   
