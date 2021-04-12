@@ -63,6 +63,8 @@ data datasprofessores [numprofessores];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
+void listaalunosmasculino ();
+void listaalunosfeminino ();
 void alunos ();
 void professores ();
 void listarprofessores ();
@@ -79,6 +81,7 @@ int main (){
     printf ("ESCOLHA UMA OPÇÃO\n");
     printf ("1 - CADASTRO DE ALUNOS\n");
     printf ("2 - LISTAR ALUNOS\n");
+    printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n")
     printf ("3 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
@@ -93,7 +96,7 @@ int main (){
             }
             return 0;
         }   
-    }while (op != 3);
+    }while (op != 4);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
@@ -151,7 +154,7 @@ void alunos ()
     printf ("Insira o sexo do aluno -  M ou F: \n");
     setbuf(stdin, NULL);
 	fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
-    if (strcpm (lista_alunos[qtalunos].sexoaluno, sexo1 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo2 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo3 != 0) && strcpm (lista_alunos[qtalunos].sexoaluno, sexo4 != 0))
+    if (strcmp (lista_alunos[qtalunos].sexoaluno, sexo1) != 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo2 !)= 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo3) != 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo4) != 0))
         {
             oksexo = 1;
             while (oksexo == 1)
@@ -190,10 +193,22 @@ void listaralunos ()
 {
     int i 
     for (i = 0; i < qtalunos; i++)
-    {
-        
+	{
+			printf("%s\n"f, lista_alunos[i].nome);
+			printf("%d/%d/%d\n", lista_alunos[i].datasaluno.dia, lista_alunos[i].datasaluno.mes, lista_alunos[i].datasaluno.ano);
+			printf("%d\n", lista_alunos[i].matriculaaluno);
+			printf("%lld\n", lista_alunos[i].cpfaluno);
+			printf("%s\n", lista_alunos[i].sexoaluno);
+			printf("\n");
     }
 
 
 }
-  
+void listaalunossexo()
+{
+    int i 
+    for (i =; i < qtalunos; i++)
+    {
+        if (strcpm)
+    }
+}
