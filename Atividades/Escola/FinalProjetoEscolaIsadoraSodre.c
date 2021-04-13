@@ -194,8 +194,9 @@ void alunos ()
         {
             printf("O cpf eh valido\n");
         }
-    printf ("Gerando número de matrícula\n");
+    printf ("Gerando número de matrícula do aluno...\n");
     lista_alunos[qtalunos].matriculaaluno = lista_alunos[qtalunos].matriculaaluno ++;
+    printf ("Número de matrícula do aluno gerado!\n");
     printf("Digite a data de completa de nascimento do aluno: \n");
     datacadastraaluno ();
     printf("O cadastro foi computado com sucesso!\n");
@@ -237,6 +238,49 @@ void listaalunofeminino ()
         printf("%s\n", lista_alunos[i].nomealuno);
     }
 }
+
+int datacadastraprofessor ()
+{
+    int ok = 0;
+    printf("Digite o dia em que você nasceu: \n");
+    scanf("%d", &datasprofessores[qtprofessores].dia);
+    
+    if (datasprofessores[numprofessores].dia < 1 && datasaluno[numprofessores].dia > 31)
+    {
+        printf("A dia é inválida; Digite novamente ");
+        scanf("%d", &datasprofessores[numprofessores].dia);
+    }
+    else {
+        printf("O dia é válido\n");
+        ok = ok++;
+    }
+    printf("Digite o mes em que você nasceu: \n");
+    scanf("%d", &datasaluno[qtalunos].mes);
+    if (datasaluno[numalunos].mes < 1 && datasaluno[numalunos].mes > 12)
+    {
+        printf("A mes é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[numalunos].mes);
+    }
+    else 
+    {
+        printf("O mes é válido\n");
+        ok = ok++;
+    }
+    printf("Digite o ano em que você nasceu: \n");
+    scanf("%d", &datasaluno[numalunos].ano);
+    if (datasaluno[numalunos].ano < 1 && datasaluno[numalunos].ano > 12)
+    {
+        printf("A mes é inválida; Digite novamente ");
+        scanf("%d", &datasaluno[numalunos].ano);
+    }
+    else 
+    {
+        printf("O ano é válido\n");
+    }
+    return 0;
+}
+
+
 
 void professores ()
 {
