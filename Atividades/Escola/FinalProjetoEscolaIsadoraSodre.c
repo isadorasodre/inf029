@@ -245,7 +245,7 @@ int datacadastraprofessor ()
     printf("Digite o dia em que você nasceu: \n");
     scanf("%d", &datasprofessores[qtprofessores].dia);
     
-    if (datasprofessores[numprofessores].dia < 1 && datasaluno[numprofessores].dia > 31)
+    if (datasprofessores[numprofessores].dia < 1 && datasprofessores[numprofessores].dia > 31)
     {
         printf("A dia é inválida; Digite novamente ");
         scanf("%d", &datasprofessores[numprofessores].dia);
@@ -255,11 +255,11 @@ int datacadastraprofessor ()
         ok = ok++;
     }
     printf("Digite o mes em que você nasceu: \n");
-    scanf("%d", &datasaluno[qtalunos].mes);
-    if (datasaluno[numalunos].mes < 1 && datasaluno[numalunos].mes > 12)
+    scanf("%d", &datasprofessores[qtprofessores].mes);
+    if (datasprofessores[numprofessores].mes < 1 && datasprofessores[numprofessores].mes > 12)
     {
         printf("A mes é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[numalunos].mes);
+        scanf("%d", &datasprofessores[numprofessores].mes);
     }
     else 
     {
@@ -267,11 +267,11 @@ int datacadastraprofessor ()
         ok = ok++;
     }
     printf("Digite o ano em que você nasceu: \n");
-    scanf("%d", &datasaluno[numalunos].ano);
-    if (datasaluno[numalunos].ano < 1 && datasaluno[numalunos].ano > 12)
+    scanf("%d", &datasprofessores[numprofessores].ano);
+    if (datasprofessores[numprofessores].ano < 1 && datasprofessores[numprofessores].ano > 12)
     {
-        printf("A mes é inválida; Digite novamente ");
-        scanf("%d", &datasaluno[numalunos].ano);
+        printf("A ano é inválido; Digite novamente ");
+        scanf("%d", &datasprofessores[numalunos].ano);
     }
     else 
     {
