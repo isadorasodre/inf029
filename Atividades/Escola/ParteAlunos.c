@@ -5,11 +5,11 @@
 #include <string.h>
 
 //definição dos valores dos vetores
-#define numprofessores 6
+#define numprofessores 5
 #define numalunos 5
 #define numdisciplinas 5
 #define alundisciplinas 40
-#define datastodos 11
+#define datastodos 10
 
 //definição de constantes para testes de char de sexo de professores e alunos
 char sexo1[4] = "M";
@@ -81,30 +81,30 @@ int main (){
     printf ("ESCOLHA UMA OPÇÃO\n");
     printf ("1 - CADASTRO DE ALUNOS\n");
     printf ("2 - LISTAR ALUNOS\n");
-    printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n")
-    printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n")
+    printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n");
+    printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n");
     printf ("5 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
             case 1:
             {
-                 printf("CADASTRE OS ALUNOS: ")
+                printf("CADASTRE OS ALUNOS: ");
                 alunos ();
             }
             case 2:
             {
-                printf("LISTA COMPLETA DE ALUNOS: ")
+                printf("LISTA COMPLETA DE ALUNOS: ");
                 listaralunos();
             }
             case 3:
             {
-                printf("ALUNOS DO SEXO MASCULINO: ")
+                printf("ALUNOS DO SEXO MASCULINO: ");
                 listaalunosmasculino();
             }
             case 4:
             {
-                printf("ALUNOS DO SEXO MASCULINO: ")
+                printf("ALUNOS DO SEXO MASCULINO: ");
                 listaalunosmasculino();
             }
         }   
@@ -166,7 +166,7 @@ void alunos ()
     printf ("Insira o sexo do aluno -  M ou F: \n");
     setbuf(stdin, NULL);
 	fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
-    if (strcmp (lista_alunos[qtalunos].sexoaluno, sexo1) != 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo2 !)= 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo3) != 0) && strcmp (lista_alunos[qtalunos].sexoaluno, sexo4) != 0))
+    if (lista_alunos[qtalunos].sexoaluno != 'm' && lista_alunos[qtalunos].sexoaluno != 'M' && lista_alunos[qtalunos].sexoaluno != 'f' && lista_alunos[qtalunos].sexoaluno != 'F')
         {
             oksexo = 1;
             while (oksexo == 1)
@@ -175,7 +175,7 @@ void alunos ()
             fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
             }
         }
-        else
+    else
         {
             printf("O sexo é válido\n ");
         }
@@ -203,11 +203,11 @@ void alunos ()
 }
 void listaralunos ()
 {
-    int i 
+    int i;
     for (i = 0; i < qtalunos; i++)
 	{
-			printf("%s\n"f, lista_alunos[i].nome);
-			printf("%d/%d/%d\n", lista_alunos[i].datasaluno.dia, lista_alunos[i].datasaluno.mes, lista_alunos[i].datasaluno.ano);
+			printf("%s\n", lista_alunos[i].nomealuno);
+			printf("%d/%d/%d\n", lista_alunos[i].datanascimentoa.dia, lista_alunos[i].datanascimentoa.mes, lista_alunos[i].datanascimentoa.ano);
 			printf("%d\n", lista_alunos[i].matriculaaluno);
 			printf("%lld\n", lista_alunos[i].cpfaluno);
 			printf("%s\n", lista_alunos[i].sexoaluno);
@@ -218,18 +218,19 @@ void listaralunos ()
 }
 void listaalunosmasculino ()
 {
-    int i 
+    int i;
     for (i=0; i<qtalunos; i++)
     {
-		if(lista_data[i].sexoaluno == 'M' && listaalunos[i].sexoaluno == 'm')
+		if(lista_alunos[i].sexoaluno == 'M' && lista_alunos[i].sexoaluno == 'm')
 		printf("%s\n", lista_alunos[i].nomealuno);
     }
 }
 void listaalunofeminino ()
 {
+    int i;
     for (i=0; i<qtalunos; i++)
     {
-        if(lista_data[i].sexoaluno == 'F' && listaalunos[i].sexoaluno == 'f')
+        if(lista_alunos[i].sexoaluno == 'F' && lista_alunos[i].sexoaluno == 'f')
         printf("%s\n", lista_alunos[i].nomealuno);
     }
 }
