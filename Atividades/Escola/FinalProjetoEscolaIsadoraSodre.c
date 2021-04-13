@@ -36,7 +36,7 @@ typedef struct dados_professor {
     char nomeprof [100];
     char sexoprof [10];
     long long int cpfprof;
-    int matriculaaluno;
+    int matriculaprof;
     data datanascimentop;
 } professor;
 
@@ -156,7 +156,7 @@ int datacadastraaluno ()
 
 void alunos ()
 {
-    int cadastradataaluno ();
+    int datacadastraaluno (); //função para chamar data de nascimento 
     int oksexo = 0;
     int okcpf = 0;
     printf ("Vocês escolheu a lista de cadastro de alunos\n");
@@ -201,6 +201,7 @@ void alunos ()
     printf("O cadastro foi computado com sucesso!\n");
     qtalunos ++;
 }
+
 void listaralunos ()
 {
     int i;
@@ -216,6 +217,7 @@ void listaralunos ()
 
 
 }
+
 void listaalunosmasculino ()
 {
     int i;
@@ -225,6 +227,7 @@ void listaalunosmasculino ()
 		printf("%s\n", lista_alunos[i].nomealuno);
     }
 }
+
 void listaalunofeminino ()
 {
     int i;
@@ -233,4 +236,53 @@ void listaalunofeminino ()
         if(lista_alunos[i].sexoaluno == 'F' && lista_alunos[i].sexoaluno == 'f')
         printf("%s\n", lista_alunos[i].nomealuno);
     }
+}
+
+void professores ()
+{
+    int listarprofessores (); //função para chamar data de nascimento 
+    int oksexo = 0;
+    int okcpf = 0;
+    printf ("Vocês escolheu a lista de cadastro de professores\n");
+    printf ("Digite o nome do professor\n");
+    setbuf(stdin, NULL);
+	fgets(lista_professores[qtprofessores].nomeprof, 100, stdin);
+    printf ("Insira o sexo do professor -  M ou F: \n");
+    setbuf(stdin, NULL);
+	fgets(lista_professores[qtprofessores].sexoprof, 10, stdin);
+    if (lista_professores[qtprofessores].sexoprof != 'm' && lista_professores[qtprofessores].sexoprof != 'M' && lista_professores[qtprofessores].sexoprof != 'f' && lista_professores[qtprofessores].sexoprof != 'F')
+        {
+            oksexo = 1;
+            while (oksexo == 1)
+            {
+            printf ("O sexo é inválido. Digite novamente  M OU F: \n");
+            fgets(lista_professores[qtprofessores].sexoprof, 10, stdin);
+            }
+        }
+    else
+        {
+            printf("O sexo é válido\n ");
+        }
+    printf("Digite o cpf do professor: ");
+    scanf("%lld", &lista_professores[qtprofessores].cpfprof);
+        if (lista_professores[qtprofessores].cpfprof > 999999999)
+         {
+            okcpf = 1;
+            while (okcpf == 1)
+            {
+            printf ("O cpf eh invalido. Digite novamente: \n");
+            scanf("%lld", lista_professores[qtprofessores].cpfprof);
+            }
+        }
+        else
+        {
+            printf("O cpf eh valido\n");
+        }
+    printf ("Gerando número de matrícula do professsor: \n");
+    lista_professores[qtprofessores].matriculaprof = lista_professores[qtprofessores].matriculaprof ++;
+    printf ("Número de matrícula do professor gerado!\n");
+    printf("Digite a data de completa de nascimento do professor: \n");
+    datacadastraprofessor ();
+    printf("O cadastro foi computado com sucesso!\n");
+    qtprofessores ++;
 }
