@@ -170,7 +170,7 @@ void alunos ()
     lista_alunos[qtalunos].sexoaluno == toupper (lista_alunos[qtalunos].sexoaluno);
     if (lista_alunos[qtalunos].sexoaluno != 'M' &&  lista_alunos[qtalunos].sexoaluno != 'F')
     {
-            printf ("O sexo é inválido. Digite novamente  M OU F: \n");
+            printf ("O sexo é inválido. Digite novamente M OU F: \n");
             scanf (" %c", &lista_alunos[qtalunos].sexoaluno);
     }
     else
@@ -278,6 +278,29 @@ int datacadastraprofessor ()
     return 0;
 }
 
+void listarnomealunos ()
+{
+    int i, j, k,r;
+    char aux [100];
+    for (i = 0; i <= qtalunos; i++)
+    {
+        for (j = i + 1; j <= qtalunos; j++ )
+        {
+        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno);
+        if (k > 0)
+        {
+            strcpy (aux, lista_alunos[i].nomealuno);
+            strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
+            strcpy (lista_alunos [j].nomealuno, aux);
+        }
+        }
+    }
+    for (r = 0; r <=qtalunos; r++)
+    {
+        printf("%s\n", lista_alunos[r].nomealuno);
+    }
+}
+
 //PARTE PROFESSORES
 
 void professores ()
@@ -290,6 +313,7 @@ void professores ()
     setbuf(stdin, NULL);
 	fgets(lista_professores[qtprofessores].nomeprof, 100, stdin);
     printf ("Insira o sexo do professor -  M ou F: \n");
+    fflush(stdin);
     scanf (" %c", &lista_professores[qtprofessores].sexoprof);
     if (lista_professores[qtprofessores].sexoprof != 'm' && lista_professores[qtprofessores].sexoprof != 'M' && lista_professores[qtprofessores].sexoprof != 'f' && lista_professores[qtprofessores].sexoprof != 'F')
         {
@@ -326,26 +350,4 @@ void professores ()
     datacadastraprofessor ();
     printf("O cadastro foi computado com sucesso!\n");
     qtprofessores ++;
-}
-void listarnomealunos ()
-{
-    int i, j, k,r;
-    char aux [100];
-    for (i = 0; i <= qtalunos; i++)
-    {
-        for (j = i + 1; j <= qtalunos; j++ )
-        {
-        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno);
-        if (k > 0)
-        {
-            strcpy (aux, lista_alunos[i].nomealuno);
-            strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
-            strcpy (lista_alunos [j].nomealuno, aux);
-        }
-        }
-    }
-    for (r = 0; r <=qtalunos; r++)
-    {
-        printf("%s\n", lista_alunos[r].nomealuno);
-    }
 }
