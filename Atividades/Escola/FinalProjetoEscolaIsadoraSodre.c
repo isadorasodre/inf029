@@ -80,7 +80,9 @@ int main (){
     printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n");
     printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n");
     printf ("5 - LISTAR ALUNOS EM ORDEM ALFABÉTICA \n");
-    printf ("6 - SAIR DO PROGRAMA \n");
+    printf ("6 - CADASTRO DE PROFESSORES \n");
+    printf ("7 - LISTAR PROFESSORES \n");
+    printf ("8 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
@@ -88,6 +90,7 @@ int main (){
             {
                 printf("CADASTRE OS ALUNOS: ");
                 alunos ();
+                qtalunos++;
             }
             case 2:
             {
@@ -106,11 +109,22 @@ int main (){
             }
             case 5:
             {
-                printf("ALUNOS POR ORDEM ALFABÉTICA ");
+                printf("ALUNOS POR ORDEM ALFABÉTICA \n");
                 listarnomealunos();
             }
+            case 6:
+            {
+                printf("CADASTRO DE PROFESSORES ");
+                professores ();
+                qtprofessores++;
+            }
+            case 7:
+            {
+                printf("LISTAR PROFESSORES: \n");
+                listarprofessores ();
+            }
         }   
-    }while (op != 6);
+    }while (op != 8);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
@@ -237,6 +251,31 @@ void listaalunofeminino ()
     }
 }
 
+void listarnomealunos ()
+{
+    int i, j, k,r;
+    char aux [100];
+    for (i = 0; i <= qtalunos; i++)
+    {
+        for (j = i + 1; j <= qtalunos; j++ )
+        {
+        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno);
+        if (k > 0)
+        {
+            strcpy (aux, lista_alunos[i].nomealuno);
+            strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
+            strcpy (lista_alunos [j].nomealuno, aux);
+        }
+        }
+    }
+    for (r = 0; r <=qtalunos; r++)
+    {
+        printf("%s\n", lista_alunos[r].nomealuno);
+    }
+}
+
+//PARTE PROFESSORES
+
 int datacadastraprofessor ()
 {
     int ok = 0;
@@ -268,8 +307,8 @@ int datacadastraprofessor ()
     scanf("%d", &datasprofessores[numprofessores].ano);
     if (datasprofessores[numprofessores].ano < 1 && datasprofessores[numprofessores].ano > 12)
     {
-        printf("A ano é inválido; Digite novamente ");
-        scanf("%d", &datasprofessores[numalunos].ano);
+        printf("A mes é inválida; Digite novamente ");
+        scanf("%d", &datasprofessores[numprofessores].ano);
     }
     else 
     {
@@ -277,31 +316,6 @@ int datacadastraprofessor ()
     }
     return 0;
 }
-
-void listarnomealunos ()
-{
-    int i, j, k,r;
-    char aux [100];
-    for (i = 0; i <= qtalunos; i++)
-    {
-        for (j = i + 1; j <= qtalunos; j++ )
-        {
-        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno);
-        if (k > 0)
-        {
-            strcpy (aux, lista_alunos[i].nomealuno);
-            strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
-            strcpy (lista_alunos [j].nomealuno, aux);
-        }
-        }
-    }
-    for (r = 0; r <=qtalunos; r++)
-    {
-        printf("%s\n", lista_alunos[r].nomealuno);
-    }
-}
-
-//PARTE PROFESSORES
 
 void professores ()
 {
@@ -314,7 +328,7 @@ void professores ()
 	fgets(lista_professores[qtprofessores].nomeprof, 100, stdin);
     printf ("Insira o sexo do professor -  M ou F: \n");
     fflush(stdin);
-    scanf (" %c", &lista_professores[qtprofessores].sexoprof);
+    scanf ("%c", &lista_professores[qtprofessores].sexoprof);
     if (lista_professores[qtprofessores].sexoprof != 'm' && lista_professores[qtprofessores].sexoprof != 'M' && lista_professores[qtprofessores].sexoprof != 'f' && lista_professores[qtprofessores].sexoprof != 'F')
         {
             oksexo = 1;
@@ -349,5 +363,21 @@ void professores ()
     printf("Digite a data de completa de nascimento do professor: \n");
     datacadastraprofessor ();
     printf("O cadastro foi computado com sucesso!\n");
-    qtprofessores ++;
 }
+
+
+void listarprofessores ()
+{
+    int i;
+    for (i = 0; i < qtprofessores; i++)
+	{
+			printf("%s\n", lista_professores[i].nomeprof);
+			printf("%d/%d/%d\n", lista_professores[i].datanascimentop.dia, lista_professores[i].datanascimentop.mes, lista_professores[i].datanascimentop.ano);
+			printf("%d\n", lista_professores[i].matriculaprof);
+			printf("%lld\n", lista_professores[i].cpfprof);
+			printf("%s\n", lista_professores[i].sexoprof);
+			printf("\n");
+    }
+
+}
+
