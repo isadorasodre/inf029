@@ -84,8 +84,11 @@ int main (){
     printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n");
     printf ("5 - LISTAR ALUNOS EM ORDEM ALFABÉTICA \n");
     printf ("6 - CADASTRO DE PROFESSORES \n");
-    printf ("7 - LISTAR PROFESSORES \n");
-    printf ("8 - SAIR DO PROGRAMA \n");
+    printf ("7 - LISTAR PROFESSORES\n");
+    printf ("8 - LISTA PROFESSORES DO SEXO MASCULINO\n");
+    printf ("9 - LISTA PROFESSORES DO SEXO FEMININO\n");
+    printf ("10 - LISTAR PROFESSORES EM ORDEM ALFABÉTICA \n");
+    printf ("11 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
@@ -126,8 +129,23 @@ int main (){
                 printf("LISTAR PROFESSORES: \n");
                 listarprofessores ();
             }
+            case 8:
+            {
+                printf("LISTAR PROFESSORES DO SEXO MASCULINO: \n");
+                listaprofmasculino ();
+            }
+            case 9:
+            {
+                printf("LISTAR PROFESSORES DO SEXO FEMININO: \n");
+                listaproffeminino ();
+            }
+            case 10:
+            {
+                printf("PROFESSORES POR ORDEM ALFABÉTICA ");
+                listarnomeprofessores ();
+            }
         }   
-    }while (op != 8);
+    }while (op != 11);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
@@ -417,7 +435,7 @@ void listarnomeprofessores ()
         {
             strcpy (aux, lista_professores[i].nomeprof);
             strcpy (lista_professores[i].nomeprof, lista_professores [j]. nomeprof);
-            strcpy (lista_professores [j].nomeprof, aux); //diante da comparação, existe uma função cópia para colocar um nome em seguida do outro (o nome 'maior' de acordo com a ordem alfabética), para em seguida colocar em um print na ordem correta. 
+            strcpy (lista_professores [j].nomeprof, aux); 
         }
         }
     }
