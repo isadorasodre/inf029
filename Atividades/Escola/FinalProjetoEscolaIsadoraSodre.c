@@ -63,6 +63,7 @@ data datasprofessores [numprofessores];
 
 //declarações das funções que serão usadas ao longo do programa
 void listaralunos ();
+void listarnomealunos ();
 void listaalunosmasculino ();
 void listaalunosfeminino ();
 void alunos ();
@@ -83,7 +84,8 @@ int main (){
     printf ("2 - LISTAR ALUNOS\n");
     printf ("3 - LISTA ALUNOS DO SEXO MASCULINO\n");
     printf ("4 - LISTA ALUNOS DO SEXO FEMININO\n");
-    printf ("5 - SAIR DO PROGRAMA \n");
+    printf ("5 - LISTAR ALUNOS EM ORDEM ALFABÉTICA \n");
+    printf ("6 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
@@ -107,12 +109,18 @@ int main (){
                 printf("ALUNOS DO SEXO MASCULINO: ");
                 listaalunosmasculino();
             }
+            case 5:
+            {
+                printf("ALUNOS POR ORDEM ALFABÉTICA ");
+                listarnomealunos();
+            }
         }   
-    }while (op != 5);
+    }while (op != 6);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
 
+//PARTE ALUNOS 
 int datacadastraaluno ()
 {
     int ok = 0;
@@ -329,4 +337,27 @@ void professores ()
     datacadastraprofessor ();
     printf("O cadastro foi computado com sucesso!\n");
     qtprofessores ++;
+}
+void listarnomealunos ()
+{
+    int i, j, k,r;
+    char aux [100];
+    for (i = 0; i <= qtalunos; i++)
+    {
+        for (j = i + 1; j <= qtalunos; j++ )
+        {
+        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno)
+        if (k > 0)
+        {
+            strcpy (aux, lista_alunos[i].nomealuno);
+            strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
+            strcpy (lista_alunos [j].nomealuno, aux);
+        }
+        }
+    }
+    for (r = 0; r <=qtalunos, r++)
+    {
+        printf("")
+    }
+
 }
