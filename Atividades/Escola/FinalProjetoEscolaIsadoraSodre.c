@@ -292,7 +292,7 @@ int datacadastraprofessor ()
 
 void professores ()
 {
-    int listarprofessores (); //função para chamar data de nascimento 
+    int datacadastraprofessor (); //função para chamar data de nascimento 
     int oksexo = 0;
     int okcpf = 0;
     printf ("Vocês escolheu a lista de cadastro de professores\n");
@@ -346,7 +346,7 @@ void listarnomealunos ()
     {
         for (j = i + 1; j <= qtalunos; j++ )
         {
-        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno)
+        k = strcmp (lista_alunos [i].nomealuno, lista_alunos [j]. nomealuno);
         if (k > 0)
         {
             strcpy (aux, lista_alunos[i].nomealuno);
@@ -355,9 +355,8 @@ void listarnomealunos ()
         }
         }
     }
-    for (r = 0; r <=qtalunos, r++)
+    for (r = 0; r <=qtalunos; r++)
     {
-        printf("")
+        printf("%s\n", lista_alunos[r].nomealuno);
     }
-
 }
