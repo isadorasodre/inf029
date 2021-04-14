@@ -61,12 +61,14 @@ void listaralunos ();
 void listarnomealunos ();
 void listaalunosmasculino ();
 void listaalunosfeminino ();
+void buscaalluno ();
 void alunos ();
 void professores ();
 void listarprofessores ();
 void listaprofmasculino ();
 void listaproffeminino ();
 void listarnomeprofessores ();
+void buscaprofessor ();
 int datacadastraaluno ();
 int datacadastraprofessor ();
 
@@ -442,5 +444,47 @@ void listarnomeprofessores ()
     for (r = 0; r <=qtprofessores; r++)
     {
         printf("%s\n", lista_professores[r].nomeprof);
+    }
+}
+
+void buscaalluno ()
+{
+    int i, r;
+    char alunobusca [4];
+    printf ("Digite as três letras do aluno que deseja buscar no cadastro de alunos: \n");
+    setbuf(stdin,NULL);
+	fgets (alunobusca, 4, stdin);
+    for (i = 0; i < qtalunos; i++)
+    {
+        r = strncmp (alunobusca, lista_alunos[i].nomealuno, 3);
+        if (r == 0)
+        {
+        printf("%s", lista_alunos[i]);
+        }
+        if (r !=0)
+        {
+        printf("O aluno não foi encontrado no cadastro\n");
+        }
+    }
+}
+
+void buscaprofessor ()
+{
+    int i, r;
+    char professorbusca [4];
+    printf ("Digite as três letras do aluno que deseja buscar no cadastro de alunos: \n");
+    setbuf(stdin,NULL);
+	fgets (professorbusca, 4, stdin);
+    for (i = 0; i < qtprofessores; i++)
+    {
+        r = strncmp (professorbusca, lista_professores[i].nomeprof, 3);
+        if (r == 0)
+        {
+        printf("%s", lista_professores[i]);
+        }
+        if (r !=0)
+        {
+        printf("O aluno não foi encontrado no cadastro\n");
+        }
     }
 }
