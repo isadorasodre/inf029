@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <stdint.h>
 #include <string.h>
+#include <ctype.h>
 
 //definição dos valores dos vetores
 #define numprofessores 5
@@ -10,12 +11,6 @@
 #define numdisciplinas 5
 #define alundisciplinas 40
 #define datastodos 10
-
-//definição de constantes para testes de char de sexo de professores e alunos
-char sexo1[4] = "M";
-char sexo2[4] = "m";
-char sexo3[4] = "F";
-char sexo4[4] = "f";
 
 //declaração de estruturas - data, professor, aluno, disciplina e aluno por disciplina
 typedef struct dados_dada{
@@ -26,7 +21,7 @@ typedef struct dados_dada{
 
 typedef struct dados_aluno {
     char nomealuno [100];
-    char sexoaluno [10];
+    char sexoaluno;
     long long int cpfaluno;
     int matriculaaluno;
     data datanascimentoa;
@@ -34,7 +29,7 @@ typedef struct dados_aluno {
 
 typedef struct dados_professor {
     char nomeprof [100];
-    char sexoprof [10];
+    char sexoprof;
     long long int cpfprof;
     int matriculaprof;
     data datanascimentop;
@@ -165,24 +160,19 @@ int datacadastraaluno ()
 void alunos ()
 {
     int datacadastraaluno (); //função para chamar data de nascimento 
-    int oksexo = 0;
     int okcpf = 0;
     printf ("Vocês escolheu a lista de cadastro de alunos\n");
     printf ("Digite o nome do aluno\n");
     setbuf(stdin, NULL);
 	fgets(lista_alunos[qtalunos].nomealuno, 100, stdin);
     printf ("Insira o sexo do aluno -  M ou F: \n");
-    setbuf(stdin, NULL);
-	fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
-    if (lista_alunos[qtalunos].sexoaluno != 'm' && lista_alunos[qtalunos].sexoaluno != 'M' && lista_alunos[qtalunos].sexoaluno != 'f' && lista_alunos[qtalunos].sexoaluno != 'F')
-        {
-            oksexo = 1;
-            while (oksexo == 1)
-            {
+    scanf (" %c", &lista_alunos[qtalunos].sexoaluno);
+    lista_alunos[qtalunos].sexoaluno == toupper (lista_alunos[qtalunos].sexoaluno);
+    if (lista_alunos[qtalunos].sexoaluno != 'M' &&  lista_alunos[qtalunos].sexoaluno != 'F')
+    {
             printf ("O sexo é inválido. Digite novamente  M OU F: \n");
-            fgets(lista_alunos[qtalunos].sexoaluno, 10, stdin);
-            }
-        }
+            scanf (" %c", &lista_alunos[qtalunos].sexoaluno);
+    }
     else
         {
             printf("O sexo é válido\n ");
@@ -288,7 +278,7 @@ int datacadastraprofessor ()
     return 0;
 }
 
-
+//PARTE PROFESSORES
 
 void professores ()
 {
@@ -300,15 +290,14 @@ void professores ()
     setbuf(stdin, NULL);
 	fgets(lista_professores[qtprofessores].nomeprof, 100, stdin);
     printf ("Insira o sexo do professor -  M ou F: \n");
-    setbuf(stdin, NULL);
-	fgets(lista_professores[qtprofessores].sexoprof, 10, stdin);
+    scanf (" %c", &lista_professores[qtprofessores].sexoprof);
     if (lista_professores[qtprofessores].sexoprof != 'm' && lista_professores[qtprofessores].sexoprof != 'M' && lista_professores[qtprofessores].sexoprof != 'f' && lista_professores[qtprofessores].sexoprof != 'F')
         {
             oksexo = 1;
             while (oksexo == 1)
             {
             printf ("O sexo é inválido. Digite novamente  M OU F: \n");
-            fgets(lista_professores[qtprofessores].sexoprof, 10, stdin);
+            scanf (" %c", &lista_professores[qtprofessores].sexoprof);
             }
         }
     else
