@@ -66,6 +66,7 @@ void professores ();
 void listarprofessores ();
 void listaprofmasculino ();
 void listaproffeminino ();
+void listarnomeprofessores ();
 int datacadastraaluno ();
 int datacadastraprofessor ();
 
@@ -266,7 +267,7 @@ void listarnomealunos ()
         {
             strcpy (aux, lista_alunos[i].nomealuno);
             strcpy (lista_alunos[i].nomealuno, lista_alunos [j]. nomealuno);
-            strcpy (lista_alunos [j].nomealuno, aux);
+            strcpy (lista_alunos [j].nomealuno, aux); //diante da comparação, existe uma função cópia para colocar um nome em seguida do outro (o nome 'maior' de acordo com a ordem alfabética), para em seguida colocar em um print na ordem correta. 
         }
         }
     }
@@ -400,5 +401,28 @@ void listaproffeminino ()
     {
         if(lista_professores[i].sexoprof == 'F' && lista_professores[i].sexoprof == 'f')
         printf("%s\n", lista_professores[i].sexoprof);
+    }
+}
+
+void void listarnomeprofessores ()
+{
+    int i, j, k,r;
+    char aux [100];
+    for (i = 0; i <= qtprofessores; i++)
+    {
+        for (j = i + 1; j <= qtprofessores; j++ )
+        {
+        k = strcmp (lista_professores [i].nomeprof, lista_professores [j]. nomeprof);
+        if (k > 0)
+        {
+            strcpy (aux, lista_professores[i].nomeprof);
+            strcpy (lista_professores[i].nomeprof, lista_professores [j]. nomeprof);
+            strcpy (lista_professores [j].nomeprof, aux); //diante da comparação, existe uma função cópia para colocar um nome em seguida do outro (o nome 'maior' de acordo com a ordem alfabética), para em seguida colocar em um print na ordem correta. 
+        }
+        }
+    }
+    for (r = 0; r <=qtprofessores; r++)
+    {
+        printf("%s\n", lista_professores[r].nomeprof);
     }
 }
