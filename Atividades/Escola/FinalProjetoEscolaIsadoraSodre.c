@@ -404,7 +404,7 @@ void listaproffeminino ()
     }
 }
 
-void void listarnomeprofessores ()
+void listarnomeprofessores ()
 {
     int i, j, k,r;
     char aux [100];
