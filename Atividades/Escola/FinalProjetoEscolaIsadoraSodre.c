@@ -61,7 +61,7 @@ void listaralunos ();
 void listarnomealunos ();
 void listaalunosmasculino ();
 void listaalunosfeminino ();
-void buscaalluno ();
+void buscaaluno ();
 void alunos ();
 void professores ();
 void listarprofessores ();
@@ -90,7 +90,9 @@ int main (){
     printf ("8 - LISTA PROFESSORES DO SEXO MASCULINO\n");
     printf ("9 - LISTA PROFESSORES DO SEXO FEMININO\n");
     printf ("10 - LISTAR PROFESSORES EM ORDEM ALFABÉTICA \n");
-    printf ("11 - SAIR DO PROGRAMA \n");
+    printf ("11 - BUSCAR PROFESSOR NA LISTA \n");
+    printf ("12 - BUSCAR ALUNO NA LISTA \n");
+    printf ("13 - SAIR DO PROGRAMA \n");
     scanf ("%d", &op);
     switch (op)
         {
@@ -146,8 +148,18 @@ int main (){
                 printf("PROFESSORES POR ORDEM ALFABÉTICA ");
                 listarnomeprofessores ();
             }
+            case 11:
+            {
+                printf("BUSCAR PROFESSOR NA LISTA ");
+                buscaprofessor ();
+            }
+            case 12:
+            {
+                printf("BUSCAR ALUNO NA LISTA ");
+                buscaaluno ();
+            }
         }   
-    }while (op != 11);
+    }while (op != 13);
     printf("Você escolheu sair do programa. Obrigado pela sua participação");
     return 0;
 }
@@ -447,7 +459,7 @@ void listarnomeprofessores ()
     }
 }
 
-void buscaalluno ()
+void buscaaluno ()
 {
     int i, r;
     char alunobusca [4];
