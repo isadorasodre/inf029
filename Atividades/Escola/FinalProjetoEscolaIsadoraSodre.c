@@ -1,3 +1,5 @@
+//professor, fiz o que consegui no tempo que eu tinha, me esforcei o máximo que pude, mas algumas coisas faltaram
+//pretendo me organizar melhor e entregar os outros trabalhos completos e me aprimorar mais. 
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
