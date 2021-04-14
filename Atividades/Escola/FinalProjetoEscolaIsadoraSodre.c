@@ -64,6 +64,8 @@ void listaalunosfeminino ();
 void alunos ();
 void professores ();
 void listarprofessores ();
+void listaprofmasculino ();
+void listaproffeminino ();
 int datacadastraaluno ();
 int datacadastraprofessor ();
 
@@ -381,3 +383,22 @@ void listarprofessores ()
 
 }
 
+void listaprofmasculino ()
+{
+    int i;
+    for (i=0; i<qtprofessores; i++)
+    {
+		if(lista_professores[i].sexoprof == 'M' && lista_professores[i].sexoprof == 'm')
+		printf("%s\n", lista_professores[i].nomeprof);
+    }
+}
+
+void listaproffeminino ()
+{
+    int i;
+    for (i=0; i<qtprofessores; i++)
+    {
+        if(lista_professores[i].sexoprof == 'F' && lista_professores[i].sexoprof == 'f')
+        printf("%s\n", lista_professores[i].sexoprof);
+    }
+}
