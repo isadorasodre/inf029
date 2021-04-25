@@ -22,10 +22,21 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
+
+//declaração das funções das questões 
+int q1 (char data[12]);
+
+int main ()
+{
+    q1 (char data [12]);
+    return 0;
+}
+
+//função da primeira questão 
 int q1(char data [12])
 {
     int datavalida = 1;
-
+    printf ("Escreva uma data completa neste modelo: dd/mm")
     //quebrar a string data em strings sDia, sMes, sAno
 
     //converter sDia, sMes e sAno em inteiros (ex: atoi)
