@@ -24,11 +24,15 @@
 #include <ctype.h>
 
 //declaração das funções das questões 
-int q1 (char data[12]);
+int q1 (char data[11]);
+char data [11];
 
 int main ()
 {
-    q1 (char data [12]);
+    printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
+    setbuf(stdin, NULL);
+	fgets(data, 11, stdin);
+    int q1 (char data[11]);
     return 0;
 }
 
@@ -40,16 +44,12 @@ int q1(char data [11])
     char mes_isolado [3];
     char ano_isolado [5];
     int posicaodia = 0; //guarda a posição da data
-    int i;
-    printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
-    setbuf(stdin, NULL);
-	fgets(data, 15, stdin);
-    for (i = 0; i < data [11]; i ++)
+    int i, j = 0;
+    int contador = 0;
+    int tam1, tam2, tam3 = 0;
+    for (i = 0, j =0; data != '\0'; i ++,)
     {
-        if (data[i] == '/')
-        {
-            strcpy(dia_isolado, data);
-            printf ("%s", dia_isolado);
+
         }
     }
 }
@@ -59,10 +59,8 @@ int q1(char data [11])
 
     //criar as variáveis iDia, iMes, iAno
 
-    //printf("%s\n", data);
-//
-//if (datavalida)
-  //      return 1;
- //   else
-  //      return 0;
-//}
+printf("%s\n", data);
+if (datavalida)
+return 1;
+else
+return 0;
