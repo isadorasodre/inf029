@@ -48,7 +48,8 @@ int q1(char data [11])
     {
         if (data[i] == '/')
         {
-
+            strcpy(dia_isolado, data);
+            print ("%s", dia_isolado)
         }
     }
     
