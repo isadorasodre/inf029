@@ -33,10 +33,22 @@ int main ()
 }
 
 //função da primeira questão 
-int q1(char data [12])
+int q1(char data [11])
 {
     int datavalida = 1;
-    printf ("Escreva uma data completa neste modelo: dd/mm")
+    posiçãodata = 0 //guarda a posição da data
+    i = 0;
+    printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
+    setbuf(stdin, NULL);
+	fgets(data, 15, stdin);
+    for (i = 0; i < data [11]; i ++)
+    {
+        if (data[i] == '/')
+        {
+            
+        }
+    }
+    
     //quebrar a string data em strings sDia, sMes, sAno
 
     //converter sDia, sMes e sAno em inteiros (ex: atoi)
