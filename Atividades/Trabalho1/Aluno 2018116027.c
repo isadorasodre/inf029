@@ -36,7 +36,10 @@ int main ()
 int q1(char data [11])
 {
     int datavalida = 1;
-    posiçãodata = 0 //guarda a posição da data
+    char dia_isolado [3];
+    char mes_isolado [3];
+    char ano_isaolado [5];
+    int posiçãodia = 0 //guarda a posição da data
     i = 0;
     printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
     setbuf(stdin, NULL);
