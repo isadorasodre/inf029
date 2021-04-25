@@ -39,8 +39,8 @@ int q1(char data [11])
     char dia_isolado [3];
     char mes_isolado [3];
     char ano_isolado [5];
-    int posiçãodia = 0 //guarda a posição da data
-    i = 0;
+    int posicaodia = 0; //guarda a posição da data
+    int i;
     printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
     setbuf(stdin, NULL);
 	fgets(data, 15, stdin);
@@ -49,10 +49,10 @@ int q1(char data [11])
         if (data[i] == '/')
         {
             strcpy(dia_isolado, data);
-            print ("%s", dia_isolado)
+            printf ("%s", dia_isolado);
         }
     }
-    
+}
     //quebrar a string data em strings sDia, sMes, sAno
 
     //converter sDia, sMes e sAno em inteiros (ex: atoi)
@@ -60,9 +60,9 @@ int q1(char data [11])
     //criar as variáveis iDia, iMes, iAno
 
     //printf("%s\n", data);
-
-    if (datavalida)
-        return 1;
-    else
-        return 0;
-}
+//
+//if (datavalida)
+  //      return 1;
+ //   else
+  //      return 0;
+//}
