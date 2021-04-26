@@ -49,22 +49,22 @@ int q1(char data [11])
     int tam1, tam2, tam3 = 0;
     for (i = 0, j =0; data != '\0'; i ++, j++)
     {
-        dia[j]=data[i];
+        dia_isolado[j]=data[i];
     }
-    dia[j+1]='\0';
-    tam1 = strlen(dia);
+    dia_isolado[j+1]='\0';
+    tam1 = strlen(dia_isolado);
     for (i = tam1 +1, j =0; data != '\0'; i++, j++)
     {
-        mes[j]=data[i];
+        mes_isolado[j]=data[i];
     }
-    mes[j+1]='\0';
-    tam2 = strlen(mes);
+    mes_isolado[j+1]='\0';
+    tam2 = strlen(mes_isolado);
     tam3 = tam2 + tam1;
-    for (i=tam3+2; dia != '\0'; i++, j++)
+    for (i=tam3+2; data != '\0'; i++, j++)
     {
-        ano[j] = data[i];
+        ano_isolado[j] = data[i];
     }
-    ano[j+1] = '\0';
+    ano_isolado[j+1] = '\0';
 
 }
     //quebrar a string data em strings sDia, sMes, sAno
@@ -73,8 +73,8 @@ int q1(char data [11])
 
     //criar as variáveis iDia, iMes, iAno
 
-printf("%s\n", data);
-if (datavalida)
-return 1;
-else
-return 0;
+//printf("%s\n", data)
+//if (datavalida)
+//return 1;
+//else
+//return 0;
