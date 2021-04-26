@@ -43,6 +43,9 @@ int q1(char data [11])
     char dia_isolado [3];
     char mes_isolado [3];
     char ano_isolado [5];
+    int dia_numero;
+    int mes_numero;
+    int ano_numero;
     int posicaodia = 0; //guarda a posição da data
     int i, j = 0;
     int contador = 0;
@@ -66,13 +69,15 @@ int q1(char data [11])
     }
     ano_isolado[j+1] = '\0';
 
+    dia_numero = atoi (dia_isolado);
+    mes_numero = atoi (mes_isolado);
+    ano_numero = atoi (ano_isolado);
+
+    if (dia_numero < 1 || dia > 31)
+
+
 }
-    //quebrar a string data em strings sDia, sMes, sAno
-
-    //converter sDia, sMes e sAno em inteiros (ex: atoi)
-
-    //criar as variáveis iDia, iMes, iAno
-
+   
 //printf("%s\n", data)
 //if (datavalida)
 //return 1;
