@@ -47,11 +47,25 @@ int q1(char data [11])
     int i, j = 0;
     int contador = 0;
     int tam1, tam2, tam3 = 0;
-    for (i = 0, j =0; data != '\0'; i ++,)
+    for (i = 0, j =0; data != '\0'; i ++, j++)
     {
-
-        }
+        dia[j]=data[i];
     }
+    dia[j+1]='\0';
+    tam1 = strlen(dia);
+    for (i = tam1 +1, j =0; data != '\0'; i++, j++)
+    {
+        mes[j]=data[i];
+    }
+    mes[j+1]='\0';
+    tam2 = strlen(mes);
+    tam3 = tam2 + tam1;
+    for (i=tam3+2; dia != '\0'; i++, j++)
+    {
+        ano[j] = data[i];
+    }
+    ano[j+1] = '\0';
+
 }
     //quebrar a string data em strings sDia, sMes, sAno
 
