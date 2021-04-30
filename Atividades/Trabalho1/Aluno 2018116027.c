@@ -25,6 +25,9 @@
 
 //declaração das funções das questões 
 int q1 (char data[11]);
+int bissexto (int valido);
+
+//declaração das variáveis universais
 char data [11];
 
 int main ()
@@ -35,6 +38,7 @@ int main ()
     int q1 (char data[11]);
     return 0;
 }
+
 
 //função da primeira questão 
 int q1(char data [11])
@@ -73,11 +77,26 @@ int q1(char data [11])
     mes_numero = atoi (mes_isolado);
     ano_numero = atoi (ano_isolado);
 
-    if (dia_numero < 1 || dia > 31)
+    //validando datas
+    if (ano_numero >= 1900 && ano_numero <= 2021)
+    {
+        if (mes_numero == 1 || mes_numero == 3 || mes_numero == 5 || mes_numero == 7 || mes_numero == 8 || mes_numero == 10 || mes_numero == 12)
+        {
+            if (dia_numero >=1 && dia_numero < 31)
+            {
+                return 1;
+            }
+        }
+        if (mes_numero == 4 || mes_numero == 6 || mes_numero == 9 || mes_numero == 11)
+        {
+            if (dia_numero >=1 && dia_numero < 30)
+            {
+                return 1;
+            }
+        }
 
-
+    }
 }
-   
 //printf("%s\n", data)
 //if (datavalida)
 //return 1;
