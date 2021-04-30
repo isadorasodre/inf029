@@ -94,11 +94,25 @@ int q1(char data [11])
                 return 1;
             }
         }
+        if (mes_numero == 2)
+        {
+            if (ano_numero%4 == 0 || ano_numero%100 == 0 || a%400 ==0)
+            {
+                if (dia_numero >=1 && dia_numero < 29)
+                {
+                    return 1;
+                }
+            }
+            if (dia_numero >=1 && dia_numero < 28)
+            {
+                return 1;
+            }
 
+        }
     }
 }
-//printf("%s\n", data)
-//if (datavalida)
+printf("%s\n", data);
+if (datavalida)
 //return 1;
 //else
 //return 0;
