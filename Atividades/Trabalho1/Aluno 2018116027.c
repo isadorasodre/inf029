@@ -24,11 +24,8 @@
 #include <ctype.h>
 
 //declaração das funções das questões 
-int q1 (char data[11]);
-int bissexto (int valido);
-
-//declaração das variáveis universais
-char data [11];
+int q1 (char *data);
+int q3 (char *texto, char c, int isCaseSensitive);
 
 int main ()
 {
@@ -41,7 +38,7 @@ int main ()
 
 
 //função da primeira questão 
-int q1(char data [11])
+int q1(char *data)
 {
     int datavalida = 1;
     char dia_isolado [3];
@@ -86,12 +83,20 @@ int q1(char data [11])
             {
                 return 1;
             }
+            else
+            {
+                return 0;
+            }
         }
         if (mes_numero == 4 || mes_numero == 6 || mes_numero == 9 || mes_numero == 11)
         {
             if (dia_numero >=1 && dia_numero < 30)
             {
                 return 1;
+            }
+            else 
+            {
+                return 0;
             }
         }
         if (mes_numero == 2)
@@ -102,18 +107,42 @@ int q1(char data [11])
                 {
                     return 1;
                 }
+                else 
+                {
+                return 0;
+                }
             }
             if (dia_numero >=1 && dia_numero < 28)
             {
                 return 1;
             }
-
+            else
+            {
+                return 0;
+            }
         }
     }
-    printf ("%c\n", data);
+    printf ("%s\n", data);
 }
 
 //PRECISO RESOLVER ESSA PARTE FINAL DO TESTE if (datavalida)
  //   return 1;
 //else
 //return 0;
+
+int q3(char *texto, char c, int isCaseSensitive)
+{
+    int qtdOcorrencias = -1;
+    int i, j = 0;
+    for ( i = 0; i < texto != '\0'; i++)
+    {
+        if (texto [i] == c)
+        qtdOcorrencias++;
+    }
+    
+
+
+    return qtdOcorrencias;
+}
+
+/*
