@@ -54,6 +54,7 @@ int q1(char *data)
     for (i = 0, j =0; data != '\0'; i ++, j++)
     {
         dia_isolado[j]=data[i];
+        printf("%s", dia_isolado);
     }
     dia_isolado[j+1]='\0';
     tam1 = strlen(dia_isolado);
