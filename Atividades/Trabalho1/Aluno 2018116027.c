@@ -123,15 +123,31 @@ int q1(char *data)
     printf ("%s\n", data);
 }
 
+//função da questão 3
 int q3(char *texto, char c, int isCaseSensitive)
 {
     int qtdOcorrencias = -1;
     int i, j = 0;
-    for ( i = 0; i < texto[i] != '\0'; i++)
+    if (isCaseSensitive!=1)
     {
-        if (texto [i] == c)
-        qtdOcorrencias++;
+        for ( i = 0; i < texto[i] != '\0'; i++)
+        {
+            if (texto [i] == c)
+            {
+            qtdOcorrencias++;
+            }
+        }
     }
-
+    else
+    {
+        for (j = 0; j < texto[j] != '\0'; j++)
+        {
+            if (tolower(texto[j])==(tolower(c)))
+            {
+            qtdOcorrencias++;
+            }
+        }
+    }
+    }
     return qtdOcorrencias;
 }
