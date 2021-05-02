@@ -148,6 +148,5 @@ int q3(char *texto, char c, int isCaseSensitive)
             }
         }
     }
-    }
     return qtdOcorrencias;
 }
