@@ -29,9 +29,6 @@ int q3 (char *texto, char c, int isCaseSensitive);
 
 int main ()
 {
-    printf ("Escreva uma data completa neste modelo: dd/mm/aaaa\n");
-    setbuf(stdin, NULL);
-	fgets(data, stdin);
     int q1 (char *data);
     return 0;
 }
@@ -51,21 +48,21 @@ int q1(char *data)
     int i, j = 0;
     int contador = 0;
     int tam1, tam2, tam3 = 0;
-    for (i = 0, j =0; data != '/'; i ++, j++)
+    for (i = 0, j =0; data[i] != '/'; i ++, j++)
     {
         dia_isolado[j]=data[i];
         printf("%s", dia_isolado);
     }
     dia_isolado[j+1]='\0';
     tam1 = strlen(dia_isolado);
-    for (i = tam1 +1, j =0; data != '/'; i++, j++)
+    for (i = tam1 +1, j =0; data[i] != '/'; i++, j++)
     {
         mes_isolado[j]=data[i];
     }
     mes_isolado[j+1]='\0';
     tam2 = strlen(mes_isolado);
     tam3 = tam2 + tam1;
-    for (i=tam3+2; data != '/'; i++, j++)
+    for (i=tam3+2; data[i] != '/'; i++, j++)
     {
         ano_isolado[j] = data[i];
     }
@@ -130,7 +127,7 @@ int q3(char *texto, char c, int isCaseSensitive)
 {
     int qtdOcorrencias = -1;
     int i, j = 0;
-    for ( i = 0; i < texto != '\0'; i++)
+    for ( i = 0; i < texto[i] != '\0'; i++)
     {
         if (texto [i] == c)
         qtdOcorrencias++;
@@ -138,5 +135,3 @@ int q3(char *texto, char c, int isCaseSensitive)
 
     return qtdOcorrencias;
 }
-
-/*
