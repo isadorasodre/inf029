@@ -182,7 +182,7 @@ int q5(int num)
 
 int q6(int numerobase, int numerobusca)
 {
-    int qtdOcorrencias, i;
+    int qtdOcorrencias;
     if (numerobase == 0)
     {
         qtdOcorrencias == 0;
@@ -192,7 +192,7 @@ int q6(int numerobase, int numerobusca)
         {
         qtdOcorrencias ++;
         }
-    n = n/10;
+    numerobase = numerobase/10;
     return qtdOcorrencias;
     }
 }
