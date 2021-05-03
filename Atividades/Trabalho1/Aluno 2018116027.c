@@ -26,11 +26,12 @@
 //declaração das funções das questões 
 int q1 (char *data);
 int q3 (char *texto, char c, int isCaseSensitive);
+int q4(char *strTexto, char *strBusca, int posicoes[30]);
+int q5(int num);
 
 int main ()
 {
     int q1 (char *data);
-    return 0;
 }
 
 
@@ -130,7 +131,7 @@ int q3(char *texto, char c, int isCaseSensitive)
     int i, j = 0;
     if (isCaseSensitive!=1)
     {
-        for ( i = 0; i < texto[i] != '\0'; i++)
+        for ( i = 0; texto[i] != '\0'; i++)
         {
             if (texto [i] == c)
             {
@@ -140,7 +141,7 @@ int q3(char *texto, char c, int isCaseSensitive)
     }
     else
     {
-        for (j = 0; j < texto[j] != '\0'; j++)
+        for (j = 0; texto[j] != '\0'; j++)
         {
             if (tolower(texto[j])==(tolower(c)))
             {
@@ -150,3 +151,33 @@ int q3(char *texto, char c, int isCaseSensitive)
     }
     return qtdOcorrencias;
 }
+int q4(char *strTexto, char *strBusca, int posicoes[30])
+{
+    int i, posicao_inicial;
+    int qtOcorrencias, tam_busca, j = 0;
+    for (i =0; strTexto != '\0'; i ++)
+    {
+        if (strTexto [i] == strBusca[j])
+        {
+            posicao_inicial = i;
+            qtOcorrencias ++;
+        }
+    
+
+
+    }
+}
+
+int q5(int num)
+{
+    int  inverso, aux;
+    while (num > 0)
+    {
+        aux = num%10;
+        inverso = inverso*10 + aux;
+        num = 0.1*num;
+    }
+    num = inverso;
+    return num;
+}
+
