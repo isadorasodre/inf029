@@ -45,7 +45,6 @@ int q1(char *data)
     int dia_numero;
     int mes_numero;
     int ano_numero;
-    int posicaodia = 0; //guarda a posição da data
     int i, j = 0;
     int contador = 0;
     int tam1, tam2, tam3 = 0;
