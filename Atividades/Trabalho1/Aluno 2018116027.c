@@ -28,6 +28,7 @@ int q1 (char *data);
 int q3 (char *texto, char c, int isCaseSensitive);
 int q4(char *strTexto, char *strBusca, int posicoes[30]);
 int q5(int num);
+int q6(int numerobase, int numerobusca)
 
 int main ()
 {
@@ -181,3 +182,8 @@ int q5(int num)
     return num;
 }
 
+int q6(int numerobase, int numerobusca)
+{
+    int qtdOcorrencias, i;
+    return qtdOcorrencias;
+}
