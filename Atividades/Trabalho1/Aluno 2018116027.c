@@ -183,5 +183,16 @@ int q5(int num)
 int q6(int numerobase, int numerobusca)
 {
     int qtdOcorrencias, i;
+    if (numerobase == 0)
+    {
+        qtdOcorrencias == 0;
+    }
+    else{
+        if (numerobusca == (numerobase % 10) )
+        {
+        qtdOcorrencias ++;
+        }
+    n = n/10;
     return qtdOcorrencias;
+    }
 }
