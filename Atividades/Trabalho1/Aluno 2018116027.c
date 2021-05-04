@@ -23,7 +23,7 @@
 #include <string.h>
 #include <ctype.h>
 
-//declaração das funções das questões 
+//declaração das funções das questões - professor, não consegui fazer a questão 2. 
 int q1 (char *data);
 int q3 (char *texto, char c, int isCaseSensitive);
 int q4(char *strTexto, char *strBusca, int posicoes[30]);
