@@ -48,10 +48,9 @@ int valida_coordenada (int a, int b)
     }
 }
 
-int jogada_jogador1
-
-i
-
+int ganha_vertical ()
+int ganha_horizontal ()
+int ganha_diagonal ()
 
 
 
