@@ -1,3 +1,7 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "Q6 2018116027.C": "cpp",
+        "stdint.h": "c"
+    }
 }
