@@ -5,11 +5,18 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
-void valida_tabela();
+//variável universal da tabela
 char tabela[3][3];
-int main ()
-{
-}
+
+//funções do jogo
+int valida_caracter (char letra);
+void valida_tabela();
+int valida_coordenada (int a, int b);
+int ganha_horizontal ();
+int ganha_vertical ();
+int ganha_diagonal ();
+int vazio ()
+
 
 void valida_tabela ()
 {
@@ -48,9 +55,42 @@ int valida_coordenada (int a, int b)
     }
 }
 
+int vazio ();
+if (tabela[a][b] != 'x' || tabela[a][b]  != '0')
+{
+    return 1;
+
+}
+else
+{
+    return 0;
+}
+
 int ganha_vertical ()
+{
+    int i, j;
+    int cont=1;
+    for (i = 0; i <3; i ++) //varre linhas
+    {
+        for (j=0; j <2; j++) // varre colunas
+        {
+            if (valida_tabela(tabela[i][j]) && tabela[i][j] == tabela[i][j+1])
+            {
+                cont++;
+            }
+            if (cont == 3)
+            {
+                return 1;
+            }
+            cont = 1;
+        }
+    }
+    return 0;
+
+}
 int ganha_horizontal ()
 int ganha_diagonal ()
+int vazio ()
 
 
 
