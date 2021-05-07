@@ -26,7 +26,6 @@
 //declaração das funções das questões - professor, não consegui fazer a questão 2. 
 int q1 (char *data);
 int q3 (char *texto, char c, int isCaseSensitive);
-int q4(char *strTexto, char *strBusca, int posicoes[30]);
 int q5(int num);
 int q6(int numerobase, int numerobusca);
 
@@ -149,22 +148,6 @@ int q3(char *texto, char c, int isCaseSensitive)
         }
     }
     return qtdOcorrencias;
-}
-int q4(char *strTexto, char *strBusca, int posicoes[30])
-{
-    int i, posicao_inicial;
-    int qtOcorrencias, tam_busca, j = 0;
-    for (i =0; strTexto != '\0'; i ++)
-    {
-        if (strTexto [i] == strBusca[j])
-        {
-            posicao_inicial = i;
-            qtOcorrencias ++;
-        }
-    
-
-
-    }
 }
 
 int q5(int num)
