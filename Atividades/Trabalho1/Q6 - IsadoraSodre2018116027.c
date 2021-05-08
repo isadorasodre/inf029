@@ -15,7 +15,7 @@ int valida_coordenada (int a, int b);
 int ganha_horizontal ();
 int ganha_vertical ();
 int ganha_diagonal ();
-int vazio ();
+int vazio (int a, int b);
 
 int main ()
 {
@@ -60,7 +60,7 @@ int valida_coordenada (int a, int b)
     }
 }
 
-int vazio ()
+int vazio (int a, int b)
 {
     if (tabela[a][b] != 'x' || tabela[a][b]  != '0')
 {
