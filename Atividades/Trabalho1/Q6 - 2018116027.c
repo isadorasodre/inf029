@@ -10,12 +10,12 @@ char tabela[3][3];
 
 //funções do jogo
 int valida_caracter (char letra);
-void valida_tabela();
+int valida_tabela();
 int valida_coordenada (int a, int b);
 int ganha_horizontal ();
 int ganha_vertical ();
 int ganha_diagonal ();
-int vazio ()
+int vazio ();
 
 int main ()
 {
@@ -23,21 +23,21 @@ int main ()
 }
 
 
-void valida_tabela ()
+int valida_tabela ()
 {
     int i, j;
     for (i =0; i <3; i++)
     {
         for (j=0; j <3; j++)
         {
-            tabela[i][j] = 'c'
+            tabela[i][j] = 'c';
         }
     }
 }
 
 int valida_caracter (char letra)
 {
-    if (char letra == 'x' || char letra '0' )
+    if (letra == 'x' || letra == '0' )
     {
         return 1;
     }
@@ -60,8 +60,9 @@ int valida_coordenada (int a, int b)
     }
 }
 
-int vazio ();
-if (tabela[a][b] != 'x' || tabela[a][b]  != '0')
+int vazio ()
+{
+    if (tabela[a][b] != 'x' || tabela[a][b]  != '0')
 {
     return 1;
 
@@ -69,6 +70,7 @@ if (tabela[a][b] != 'x' || tabela[a][b]  != '0')
 else
 {
     return 0;
+}
 }
 
 int ganha_vertical ()
@@ -95,7 +97,7 @@ int ganha_vertical ()
 int ganha_horizontal ()
 {
     int i, j;
-    cont = 1;
+    int cont = 1;
     for (i =0; i <3; i++)
     {
         for (j=0; j<2; j++)
@@ -116,16 +118,4 @@ int ganha_horizontal ()
 int ganha_diagonal ()
 {
     int i, j;
-    cont = 
-}
-int vazio ()
-
-
-
-
-
-
-
-
-
 }
