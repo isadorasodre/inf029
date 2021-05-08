@@ -9,7 +9,7 @@
 char tabela[3][3];
 
 //funções do jogo
-int valida_caracter (char letra);
+int valida_caracter(char letra);
 int valida_tabela();
 int valida_coordenada (int a, int b);
 int ganha_horizontal ();

@@ -23,16 +23,11 @@
 #include <string.h>
 #include <ctype.h>
 
-//declaração das funções das questões - professor, não consegui fazer a questão 2. 
+//declaração das funções das questões - professor, não consegui fazer as quest 2 e 4. 
 int q1 (char *data);
 int q3 (char *texto, char c, int isCaseSensitive);
 int q5(int num);
 int q6(int numerobase, int numerobusca);
-
-int main ()
-{
-    int q1 (char *data);
-}
 
 //função da primeira questão 
 int q1(char *data)
@@ -150,6 +145,7 @@ int q3(char *texto, char c, int isCaseSensitive)
     return qtdOcorrencias;
 }
 
+//função da questão 5
 int q5(int num)
 {
     int  inverso, aux;
@@ -163,6 +159,7 @@ int q5(int num)
     return num;
 }
 
+//função da questão 6
 int q6(int numerobase, int numerobusca)
 {
     int qtdOcorrencias;
