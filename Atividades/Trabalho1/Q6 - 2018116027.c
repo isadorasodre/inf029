@@ -78,17 +78,36 @@ int ganha_vertical ()
             {
                 cont++;
             }
+        }
             if (cont == 3)
             {
                 return 1;
             }
             cont = 1;
-        }
     }
     return 0;
-
 }
 int ganha_horizontal ()
+{
+    int i, j;
+    cont = 1;
+    for (i =0; i <3; i++)
+    {
+        for (j=0; j<2; j++)
+        {
+            if(valida_tabela(tabela[j][i]) && tabela[j][i] == tabela[j+1][i])
+            {
+                cont++;
+            }
+        }
+        if (cont == 3)
+        {
+            return 1;
+        }
+        cont = 1;
+    }
+        return 0;
+}
 int ganha_diagonal ()
 int vazio ()
 
