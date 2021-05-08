@@ -17,6 +17,11 @@ int ganha_vertical ();
 int ganha_diagonal ();
 int vazio ()
 
+int main ()
+{
+    return 0;
+}
+
 
 void valida_tabela ()
 {
@@ -109,6 +114,10 @@ int ganha_horizontal ()
         return 0;
 }
 int ganha_diagonal ()
+{
+    int i, j;
+    cont = 
+}
 int vazio ()
 
 
