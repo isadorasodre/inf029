@@ -14,7 +14,8 @@ int valida_tabela();
 int valida_coordenada (int a, int b);
 int ganha_horizontal ();
 int ganha_vertical ();
-int ganha_diagonal ();
+int ganha_diagonalprincipal ();
+int ganha_diagonalsecundaria ();
 int vazio (int a, int b);
 
 int main ()
@@ -115,7 +116,44 @@ int ganha_horizontal ()
     }
         return 0;
 }
-int ganha_diagonal ()
+int ganha_diagonalprincipal ()
 {
-    int i, j;
+    int i;
+    int cont = 1;
+    for (i =0; i <2; i++)
+    {
+        if (valida_tabela(tabela[i][i]) && tabela[i][i] == tabela[i+1][i+1])
+        {
+            cont ++;
+        }
+    }
+       if (cont == 3)
+       {
+           return 1;
+       } 
+       else
+       {
+           return 0;
+       }
+}
+
+int ganha_diagonalsecundaria ()
+{
+    int i;
+    int cont = 1;
+    for (i =0; i <2; i++)
+    {
+        if (valida_tabela(tabela[i][3-i-1]) && tabela[i][3-i-1] == tabela[i+1][3-i-2])
+        {
+            cont ++;
+        }
+    }
+       if (cont == 3)
+       {
+           return 1;
+       } 
+       else
+       {
+           return 0;
+       }
 }
