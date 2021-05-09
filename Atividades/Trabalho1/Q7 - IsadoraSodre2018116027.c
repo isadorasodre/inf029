@@ -85,7 +85,7 @@ int ganha_vertical ()
     {
         for (j=0; j <2; j++) // varre colunas
         {
-            if (valida_tabela(tabela[i][j]) && tabela[i][j] == tabela[i][j+1])
+            if (valida_caracter(tabela[i][j]) && tabela[i][j] == tabela[i][j+1])
             {
                 cont++;
             }
@@ -106,7 +106,7 @@ int ganha_horizontal ()
     {
         for (j=0; j<2; j++)
         {
-            if(valida_tabela(tabela[j][i]) && tabela[j][i] == tabela[j+1][i])
+            if(valida_caracter(tabela[j][i]) && tabela[j][i] == tabela[j+1][i])
             {
                 cont++;
             }
@@ -125,7 +125,7 @@ int ganha_diagonalprincipal ()
     int cont = 1;
     for (i =0; i <2; i++)
     {
-        if (valida_tabela(tabela[i][i]) && tabela[i][i] == tabela[i+1][i+1])
+        if (valida_caracter(tabela[i][i]) && tabela[i][i] == tabela[i+1][i+1])
         {
             cont ++;
         }
@@ -146,7 +146,7 @@ int ganha_diagonalsecundaria ()
     int cont = 1;
     for (i =0; i <2; i++)
     {
-        if (valida_tabela(tabela[i][3-i-1]) && tabela[i][3-i-1] == tabela[i+1][3-i-2])
+        if (valida_caracter(tabela[i][3-i-1]) && tabela[i][3-i-1] == tabela[i+1][3-i-2])
         {
             cont ++;
         }
@@ -172,7 +172,7 @@ int comeca_jogo()
             imprime_jogo();
             printf("Digite a coordenada da sua jogada: ");
             scanf("%d%d", &a, &b);
-            validar_jogada = valida_tabela (a, b);
+            validar_jogada = valida_coordenada (a, b);
             if (validar_jogada == 1)
             {
                 validar_jogada += vazio (a, b);
@@ -219,7 +219,7 @@ int imprime_jogo ()
         printf("%d", i);
         for (j = 0; j < 3; j ++)
         {
-            if(valida_coordenada (tabela[i][j]))
+            if(valida_caracter (tabela[i][j]))
             {
                 printf("%c  |", tabela[i][j]);
             }
