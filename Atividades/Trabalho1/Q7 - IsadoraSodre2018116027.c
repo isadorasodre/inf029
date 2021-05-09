@@ -165,7 +165,7 @@ int comeca_jogo()
     int validar_jogada= 0;
     int ordem_jogador = 1;
     int jogadas = 0;
-    int ganhador = 0;
+    int vence = 0;
     do {
         do{
             imprime_jogo();
@@ -191,14 +191,12 @@ int comeca_jogo()
                 {
                     ordem_jogador == 1;
                 }
-                
+                vence += ganha_horizontal ();
+                vence += ganha_vertical ();
+                vence += ganha_diagonalprincipal ();
+                vence += ganha_diagonalsecundaria ();
+    } while (vence == 0 && jogadas < 9);
 
-
-
-
-
-
-    } while ()
 }
 
 
