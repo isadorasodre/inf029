@@ -196,7 +196,17 @@ int comeca_jogo()
                 vence += ganha_diagonalprincipal ();
                 vence += ganha_diagonalsecundaria ();
     } while (vence == 0 && jogadas < 9);
-
+    if (vence != 0)
+    {
+        if (ordem_jogador - 1 == 1)
+        {
+            printf("Parabéns, jogador 1! Você venceu!\n");
+        }
+       else 
+        {
+            printf("Parabéns, jogador 2! Você venceu!\n");
+        }
+    }
 }
 
 
