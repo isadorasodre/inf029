@@ -166,7 +166,7 @@ int ganha_diagonalsecundaria ()
 int imprime_jogo ()
 {
     int i, j; //linhas e colunas
-    printf (" 0  1  2\n");
+    printf ("\n 0  1  2\n");
     for (i  = 0; i < 3; i ++){
         printf("%d", i);
         for (j = 0; j < 3; j ++)
@@ -180,14 +180,14 @@ int imprime_jogo ()
                 printf("   |");
             }
         }
-        printf("--------");
+        printf("-----");
     }
 }
 
 int comeca_jogo()
 {
     int a,b;
-    int validar_jogada= 0;
+    int validar_jogada = 0;
     int ordem_jogador = 1;
     int jogadas = 0;
     int vence = 0;
