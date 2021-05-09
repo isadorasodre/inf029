@@ -17,8 +17,9 @@ int ganha_vertical ();
 int ganha_diagonalprincipal ();
 int ganha_diagonalsecundaria ();
 int vazio (int a, int b);
-int comeca_jogo();
 int imprime_jogo ();
+int comeca_jogo();
+
 
 int main ()
 {
@@ -171,7 +172,7 @@ int comeca_jogo()
             imprime_jogo();
             printf("Digite a coordenada da sua jogada: ");
             scanf("%d%d", &a, &b);
-            validar_jogada = valida_coordenada (a, b);
+            validar_jogada = valida_tabela (a, b);
             if (validar_jogada == 1)
             {
                 validar_jogada += vazio (a, b);
@@ -210,3 +211,23 @@ int comeca_jogo()
 }
 
 
+int imprime_jogo ()
+{
+    int i, j; //linhas e colunas
+    printf (" 0 1 2\n");
+    for (i  = 0; i < 3; i ++){
+        printf("%d", i);
+        for (j = 0; j < 3; j ++)
+        {
+            if(valida_coordenada (tabela[i][j]))
+            {
+                printf("%c  |", tabela[i][j]);
+            }
+            else
+            {
+                printf("   |");
+            }
+        }
+        printf("-----");
+    }
+}
