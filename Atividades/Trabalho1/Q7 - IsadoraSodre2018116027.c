@@ -17,6 +17,8 @@ int ganha_vertical ();
 int ganha_diagonalprincipal ();
 int ganha_diagonalsecundaria ();
 int vazio (int a, int b);
+int comeca_jogo();
+int imprime_jogo ();
 
 int main ()
 {
@@ -157,3 +159,46 @@ int ganha_diagonalsecundaria ()
            return 0;
        }
 }
+int comeca_jogo()
+{
+    int a,b;
+    int validar_jogada= 0;
+    int ordem_jogador = 1;
+    int jogadas = 0;
+    int ganhador = 0;
+    do {
+        do{
+            imprime_jogo();
+            printf("Digite a coordenada da sua jogada: ");
+            scanf("%d%d", &a, &b);
+            validar_jogada = valida_coordenada (a, b);
+            if (validar_jogada == 1)
+            {
+                validar_jogada += vazio (a, b);
+            }
+        } while (validar_jogada != 2);
+                if (ordem_jogador == 1)
+                {
+                tabela [a][b] = 'x';
+                }
+                else 
+                {
+                    tabela [a][b] = '0';
+                }
+                ordem_jogador ++;
+                jogadas ++;
+                if (ordem_jogador == 3 )
+                {
+                    ordem_jogador == 1;
+                }
+                
+
+
+
+
+
+
+    } while ()
+}
+
+
