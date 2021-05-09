@@ -23,14 +23,8 @@ int comeca_jogo();
 
 int main ()
 {
-    int op;
-    do{
         int valida_tabela();
         int comeca_jogo();
-        printf ("Deseja jogar novamente? 1 - Sim | 2 - Não\n");
-        scanf("%d", &op);
-    }while (op == 1);
-    return 0;
 }
 
 
