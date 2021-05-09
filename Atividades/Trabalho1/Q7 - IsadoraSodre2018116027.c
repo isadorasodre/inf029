@@ -23,8 +23,8 @@ int comeca_jogo();
 
 int main ()
 {
-        int valida_tabela();
-        int comeca_jogo();
+        valida_tabela();
+        comeca_jogo();
         return 0;
 }
 
