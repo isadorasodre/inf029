@@ -23,6 +23,13 @@ int comeca_jogo();
 
 int main ()
 {
+    int op;
+    do{
+        int valida_tabela();
+        int comeca_jogo();
+        print ("Deseja jogar novamente? 1 - Sim | 2 - Não\n");
+        scanf("%d", &op);
+    }while (op == 1);
     return 0;
 }
 
@@ -160,6 +167,28 @@ int ganha_diagonalsecundaria ()
            return 0;
        }
 }
+
+int imprime_jogo ()
+{
+    int i, j; //linhas e colunas
+    printf (" 0  1  2\n");
+    for (i  = 0; i < 3; i ++){
+        printf("%d", i);
+        for (j = 0; j < 3; j ++)
+        {
+            if(valida_caracter (tabela[i][j]))
+            {
+                printf("%c  |", tabela[i][j]);
+            }
+            else
+            {
+                printf("   |");
+            }
+        }
+        printf("--------");
+    }
+}
+
 int comeca_jogo()
 {
     int a,b;
@@ -211,23 +240,3 @@ int comeca_jogo()
 }
 
 
-int imprime_jogo ()
-{
-    int i, j; //linhas e colunas
-    printf (" 0 1 2\n");
-    for (i  = 0; i < 3; i ++){
-        printf("%d", i);
-        for (j = 0; j < 3; j ++)
-        {
-            if(valida_caracter (tabela[i][j]))
-            {
-                printf("%c  |", tabela[i][j]);
-            }
-            else
-            {
-                printf("   |");
-            }
-        }
-        printf("-----");
-    }
-}
