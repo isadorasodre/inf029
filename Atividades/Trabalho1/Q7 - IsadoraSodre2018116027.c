@@ -25,6 +25,7 @@ int main ()
 {
         int valida_tabela();
         int comeca_jogo();
+        return 0;
 }
 
 
