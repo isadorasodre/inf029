@@ -6,6 +6,16 @@
 
 VetorPrincipal vetor [TAM];
 
+int erro_posicao(int posicao)
+{
+    int retorno;
+    if (posicao < 1 || posicao > TAM)
+            retorno = 1;
+    else 
+        retorno = 0;
+    return retorno;  
+}   
+
 void dobrar(int *x)
 {
 
@@ -24,18 +34,16 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
         retorno = TAMANHO_INVALIDO;
     else
         cont ++;
-    if (if vetor[posicao]  )
-
-
-
-
-    // a posicao pode já existir estrutura auxiliar
-    retorno = JA_TEM_ESTRUTURA_AUXILIAR;
-    // o tamanho ser muito grande
-    retorno = SEM_ESPACO_DE_MEMORIA;
-    // deu tudo certo, crie
-    retorno = SUCESSO;
-
+    if (vetor[posicao].apontador!= NULL)
+        retorno = JA_TEM_ESTRUTURA_AUXILIAR;
+    else 
+        cont++;
+    if (vetor[posicao].tamanho_vetorprincipal < tamanho)
+        retorno = SEM_ESPACO_DE_MEMORIA;
+    else
+        cont++;
+    if (cont == 4)
+        retorno = SUCESSO;
     return retorno;
 }
 
@@ -56,11 +64,10 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
     int temEspaco = 0;
     int posicao_invalida = 0;
 
-    if (posicao_invalida)
+    if (erro_posicao(posicao) == 1)
         retorno = POSICAO_INVALIDA;
     else
     {
-        // testar se existe a estrutura auxiliar
         if (existeEstruturaAuxiliar)
         {
             if (temEspaco)
@@ -271,12 +278,3 @@ void finalizar()
 {
 }
 
-int erro_posicao(int posicao)
-{
-    int retorno;
-    if (posicao < 1 || posicao > TAM)
-            retorno = 1;
-    else 
-        returno = 0;
-    return retorno;  
-}   
