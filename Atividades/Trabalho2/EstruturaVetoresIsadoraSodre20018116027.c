@@ -4,7 +4,7 @@
 
 #include "EstruturaVetores.h"
 
-int vetorPrincipal vetor [TAM];
+int vetorPrincipal [TAM];
 
 void dobrar(int *x)
 {
@@ -15,7 +15,8 @@ void dobrar(int *x)
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
     int retorno;
-    if (posicao )
+    if (erro_posicao(posicao) == 1)
+        retorno = retorno = POSICAO_INVALIDA;
 
 
 
@@ -265,3 +266,12 @@ para poder liberar todos os espaços de memória das estruturas auxiliares.
 void finalizar()
 {
 }
+
+int erro_posicao(int posicao)
+{
+    int retorno;
+    if (posicao < 1 || posicao > TAM)
+            retorno = 1;
+    else 
+        returno = 0;  
+}   
