@@ -4,7 +4,7 @@
 
 #include "EstruturaVetores.h"
 
-int vetorPrincipal[TAM];
+int vetorPrincipal vetor [TAM];
 
 void dobrar(int *x)
 {
