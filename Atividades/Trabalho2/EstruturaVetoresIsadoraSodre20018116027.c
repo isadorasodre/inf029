@@ -28,25 +28,32 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
     int cont;
     if (erro_posicao(posicao) == 1)
         retorno = POSICAO_INVALIDA;
-    else
-        cont ++;
-    if (tamanho  < 1)
-        retorno = TAMANHO_INVALIDO;
-    else
-        cont ++;
-    if (vetor[posicao].apontador!= NULL)
-        retorno = JA_TEM_ESTRUTURA_AUXILIAR;
-    else 
-        cont++;
-    if (vetor[posicao].tamanho_vetorprincipal < tamanho)
-        retorno = SEM_ESPACO_DE_MEMORIA;
-    else
-        cont++;
-    if (cont == 4)
-        retorno = SUCESSO;
+        else
+        {
+            cont ++;
+            if (tamanho  < 1)
+                retorno = TAMANHO_INVALIDO;
+            else
+            {
+                cont ++;
+                if (vetor[posicao].apontador!= NULL)
+                    retorno = JA_TEM_ESTRUTURA_AUXILIAR;
+                else
+                {
+                    cont++;
+                    vetor[posicao].apontador=(int*)malloc(tamanho*sizeof(int)); 
+                    if (vetor[posicao].apontador!=NULL)
+                    {
+                        vetor[posicao].tam=tamanho;
+                        retorno=SUCESSO;
+                    }
+                    else 
+                        retorno=SEM_ESPACO_DE_MEMORIA;
+                }
+            }
+        }
     return retorno;
 }
-
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
 Rertono (int)
