@@ -65,7 +65,7 @@ CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao, int valor)
 {
-
+    int n; 
     int retorno = 0;
     int existeEstruturaAuxiliar = 0;
     int temEspaco = 0;
@@ -75,9 +75,18 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
         retorno = POSICAO_INVALIDA;
     else
     {
-        if (existeEstruturaAuxiliar)
-        {
-            if (temEspaco)
+        if (vetor[posicao].apontador == NULL)
+            retorno=SEM_ESTRUTURA_AUXILIAR;
+        else
+            {
+                n = vetor[posicao].contador;
+                if (n >= vetor[posicao].tam)
+                retorno = SEM_ESPACO;
+            else 
+            {
+                vetor[posicao].apontador[n] = valor;
+                vetor[posicao].contador++;
+            }
             {
                 //insere
                 retorno = SUCESSO;

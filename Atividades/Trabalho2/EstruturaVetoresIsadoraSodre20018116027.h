@@ -17,5 +17,5 @@
 typedef struct VetorPrincipal{
 	int *apontador; 
 	int tam; 
-	int cont;
+	int contador;
 } VetorPrincipal;
