@@ -164,7 +164,7 @@ int q6(int numerobase, int numerobusca)
     int qtdOcorrencias;
     if (numerobase == 0)
     {
-        qtdOcorrencias == 0;
+        qtdOcorrencias = 0;
     }
     else{
         if (numerobusca == (numerobase % 10) )
