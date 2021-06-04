@@ -70,7 +70,7 @@ int q1(char *data)
     {
         if (mes_numero == 1 || mes_numero == 3 || mes_numero == 5 || mes_numero == 7 || mes_numero == 8 || mes_numero == 10 || mes_numero == 12)
         {
-            if (dia_numero >=1 && dia_numero < 31)
+            if (dia_numero >=1 && dia_numero <= 31)
             {
                 return 1;
             }
@@ -81,7 +81,7 @@ int q1(char *data)
         }
         if (mes_numero == 4 || mes_numero == 6 || mes_numero == 9 || mes_numero == 11)
         {
-            if (dia_numero >=1 && dia_numero < 30)
+            if (dia_numero >=1 && dia_numero <= 30)
             {
                 return 1;
             }
@@ -94,7 +94,7 @@ int q1(char *data)
         {
             if (ano_numero%4 == 0 || ano_numero%100 == 0 || ano_numero%400 ==0)
             {
-                if (dia_numero >=1 && dia_numero < 29)
+                if (dia_numero >=1 && dia_numero <= 29)
                 {
                     return 1;
                 }
@@ -103,7 +103,7 @@ int q1(char *data)
                 return 0;
                 }
             }
-            if (dia_numero >=1 && dia_numero < 28)
+            if (dia_numero >=1 && dia_numero <= 28)
             {
                 return 1;
             }
@@ -113,7 +113,6 @@ int q1(char *data)
             }
         }
     }
-    printf ("%s\n", data);
 }
 
 //função da questão 3
