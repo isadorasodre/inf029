@@ -160,17 +160,15 @@ int q5(int num)
 //função da questão 6
 int q6(int numerobase, int numerobusca)
 {
-    int qtdOcorrencias;
-    if (numerobase == 0)
+    int qtdOcorrencias, r; 
+    while (numerobase == 0)
     {
-        qtdOcorrencias = 0;
-    }
-    else{
-        if (numerobusca == (numerobase % 10) )
+        r=numerobase%10;
+        if(r==numerobusca)
         {
-        qtdOcorrencias ++;
+            qtdOcorrencias++;
         }
-    numerobase = numerobase/10;
-    return qtdOcorrencias;
+        numerobase=0.1*numerobase;
     }
+    return qtdOcorrencias;
 }
