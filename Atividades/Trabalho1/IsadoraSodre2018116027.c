@@ -112,6 +112,11 @@ int q1(char *data)
                 return 0;
             }
         }
+        return 1;
+    }
+    else
+    {
+        return 0;
     }
 }
 
