@@ -1,6 +1,8 @@
 // Aluna: Isadora de Sodré Chaves
 // Laboratório de Programação
 // Professor: Renato Novais
+#ifndef TRABALHO2_ESTRUTURAVETORES_H
+#define TRABALHO2_ESTRUTURAVETORES_H
 
 #define SUCESSO -1
 #define SEM_ESPACO -2
@@ -14,3 +16,33 @@
 #define NOVO_TAMANHO_INVALIDO -10
 #define TODAS_ESTRUTURAS_AUXILIARES_VAZIAS -11
 
+typedef struct reg {
+    int conteudo;
+    struct reg *prox;
+} No;
+
+typedef struct estrutura_vetor{
+	int tamanho_vetor;
+	int contador;
+	int *aponta;
+} estutura_vetor;
+
+int criarEstruturaAuxiliar(int posicao, int tamanho);
+int inserirNumeroEmEstrutura(int posicao, int valor);
+int excluirNumeroDoFinaldaEstrutura(int posicao);
+int excluirNumeroEspecificoDeEstrutura(int posicao, int valor);
+int getDadosEstruturaAuxiliar(int posicao, int vetorAux[]);
+int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[]);
+int getDadosDeTodasEstruturasAuxiliares(int vetorAux[]);
+int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[]);
+int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
+int getQuantidadeElementosEstruturaAuxiliar(int posicao);
+No *montarListaEncadeadaComCabecote();
+void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
+void destruirListaEncadeadaComCabecote(No **inicio);
+
+void inicializar();
+void finalizar();
+void dobrar(int *x);
+
+#endif  // TRABALHO2_ESTRUTURAVETORES_H
