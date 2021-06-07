@@ -4,20 +4,6 @@
 
 #include "EstruturaVetores.h"
 
-typedef struct estrutura_vetor{
-	int tamanho_vetor;
-	int contador;
-	int *aponta;
-} estutura_vetor;
-
-estutura_vetor vetorPrincipal [TAM];
-
-typedef struct reg{
-	int conteudo;
-	struct reg *prox;
-} No;
-
-
 int erro_posicao(int posicao)
 {
     int retorno;
@@ -161,11 +147,9 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
+{
 
-
-    return retorno;
 }
-
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
 {
@@ -175,8 +159,9 @@ int ehPosicaoValida(int posicao)
         retorno = POSICAO_INVALIDA;
     }
     else
+    {
         retorno = SUCESSO;
-
+    }
     return retorno;
 }
 /*

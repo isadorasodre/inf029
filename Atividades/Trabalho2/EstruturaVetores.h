@@ -16,18 +16,21 @@
 #define NOVO_TAMANHO_INVALIDO -10
 #define TODAS_ESTRUTURAS_AUXILIARES_VAZIAS -11
 
-typedef struct reg {
-    int conteudo;
-    struct reg *prox;
-} No;
-
 typedef struct estrutura_vetor{
 	int tamanho_vetor;
 	int contador;
 	int *aponta;
 } estutura_vetor;
 
+estutura_vetor vetorPrincipal [TAM];
+
+typedef struct reg{
+	int conteudo;
+	struct reg *prox;
+} No;
+
 int erro_posicao(int posicao);
+int ehPosicaoValida(int posicao);
 int criarEstruturaAuxiliar(int posicao, int tamanho);
 int inserirNumeroEmEstrutura(int posicao, int valor);
 int excluirNumeroDoFinaldaEstrutura(int posicao);
