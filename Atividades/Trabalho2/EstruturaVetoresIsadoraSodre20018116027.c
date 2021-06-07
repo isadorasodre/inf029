@@ -120,6 +120,18 @@ Rertono (int)
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
     int retorno = SUCESSO;
+    if (erro_posicao(posicao) == 1)
+    {
+        retorno = POSICAO_INVALIDA;
+    }
+    else
+    {
+
+    }
+
+
+
+    
     return retorno;
 }
 
