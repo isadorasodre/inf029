@@ -7,7 +7,7 @@
 typedef struct estrutura_vetor{
 	int tamanho_vetor;
 	int contador;
-	int *vetorauxiliar;
+	int *aponta;
 } estutura_vetor;
 
 estutura_vetor vetorPrincipal [TAM];
@@ -45,12 +45,12 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
                 retorno = TAMANHO_INVALIDO;
             else
             {
-                if (vetorPrincipal[posicao].vetorauxiliar!= NULL)
+                if (vetorPrincipal[posicao].aponta!= NULL)
                     retorno = JA_TEM_ESTRUTURA_AUXILIAR;
                 else
                 {
-                    vetorPrincipal[posicao].vetorauxiliar=(int*)malloc(tamanho*sizeof(int)); 
-                    if (vetorPrincipal[posicao].vetorauxiliar!=NULL)
+                    vetorPrincipal[posicao].aponta=(int*)malloc(tamanho*sizeof(int)); 
+                    if (vetorPrincipal[posicao].aponta!=NULL)
                     {
                         vetorPrincipal[posicao].tamanho_vetor=tamanho;
                         retorno=SUCESSO;
@@ -86,7 +86,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
     else
     {
         posicao --;
-        if (vetorPrincipal[posicao].vetorauxiliar == NULL)
+        if (vetorPrincipal[posicao].aponta == NULL)
         {
             retorno=SEM_ESTRUTURA_AUXILIAR;
         }
@@ -99,7 +99,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
                 }
                 else // tudo ok, adiciona-se a estrutura
                 {       
-                    vetorPrincipal[posicao].vetorauxiliar[n] = valor;
+                    vetorPrincipal[posicao].aponta[n] = valor;
                     vetorPrincipal[posicao].contador ++;
                     return SUCESSO;
                 } 
@@ -125,13 +125,26 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
         retorno = POSICAO_INVALIDA;
     }
     else
-    {
+    {   
+        posicao--;
+        if(vetorPrincipal[posicao].aponta == NULL)
+        {
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+        else
+        {
+            if (vetorPrincipal[posicao].contador == 0)
+            {
+                retorno = ESTRUTURA_AUXILIAR_VAZIA;
+            }
+            else
+            {
+                vetorPrincipal[posicao].contador--;
+                retorno SUCESSO; 
+            }
+        }
 
     }
-
-
-
-    
     return retorno;
 }
 
