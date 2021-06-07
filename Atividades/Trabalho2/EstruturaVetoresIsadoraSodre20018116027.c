@@ -4,7 +4,19 @@
 
 #include "EstruturaVetores.h"
 
-VetorPrincipal vetor [TAM];
+typedef struct estrutura_vetor{
+	int tamanho_vetor;
+	int contador;
+	int *vetorauxiliar;
+} estutura_vetor;
+
+estutura_vetor vetorPrincipal [TAM];
+
+typedef struct reg{
+	int conteudo;
+	struct reg *prox;
+} No;
+
 
 int erro_posicao(int posicao)
 {
@@ -24,27 +36,23 @@ void dobrar(int *x)
 
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
-    int retorno;
-    int cont;
+    int retorno = 0;
     if (erro_posicao(posicao) == 1)
         retorno = POSICAO_INVALIDA;
         else
         {
-            cont ++;
             if (tamanho  < 1)
                 retorno = TAMANHO_INVALIDO;
             else
             {
-                cont ++;
-                if (vetor[posicao].apontador!= NULL)
+                if (vetorPrincipal[posicao].vetorauxiliar!= NULL)
                     retorno = JA_TEM_ESTRUTURA_AUXILIAR;
                 else
                 {
-                    cont++;
-                    vetor[posicao].apontador=(int*)malloc(tamanho*sizeof(int)); 
-                    if (vetor[posicao].apontador!=NULL)
+                    vetorPrincipal[posicao].vetorauxiliar=(int*)malloc(tamanho*sizeof(int)); 
+                    if (vetorPrincipal[posicao].vetorauxiliar!=NULL)
                     {
-                        vetor[posicao].tam=tamanho;
+                        vetorPrincipal[posicao].tamanho_vetor=tamanho;
                         retorno=SUCESSO;
                     }
                     else 
@@ -64,47 +72,41 @@ Rertono (int)
 CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao, int valor)
-{
-    int n; 
+{   
+    int n;
     int retorno = 0;
     int existeEstruturaAuxiliar = 0;
     int temEspaco = 0;
     int posicao_invalida = 0;
 
     if (erro_posicao(posicao) == 1)
+    {
         retorno = POSICAO_INVALIDA;
+    }
     else
     {
-        if (vetor[posicao].apontador == NULL)
-            retorno=SEM_ESTRUTURA_AUXILIAR;
-        else
-            {
-                n = vetor[posicao].contador;
-                if (n >= vetor[posicao].tam)
-                retorno = SEM_ESPACO;
-            else 
-            {
-                vetor[posicao].apontador[n] = valor;
-                vetor[posicao].contador++;
-            }
-            {
-                //insere
-                retorno = SUCESSO;
-            }
-            else
-            {
-                retorno = SEM_ESPACO;
-            }
-        }
-        else
+        posicao --;
+        if (vetorPrincipal[posicao].vetorauxiliar == NULL)
         {
-            retorno = SEM_ESTRUTURA_AUXILIAR;
+            retorno=SEM_ESTRUTURA_AUXILIAR;
         }
-    }
-
+        else
+            {
+                n = vetorPrincipal[posicao].contador;
+                if (n >= vetorPrincipal[posicao].tamanho_vetor)
+                {
+                    retorno = SEM_ESPACO;
+                }
+                else // tudo ok, adiciona-se a estrutura
+                {       
+                    vetorPrincipal[posicao].vetorauxiliar[n] = valor;
+                    vetorPrincipal[posicao].contador ++;
+                    return SUCESSO;
+                } 
+            }
+    }    
     return retorno;
-}
-
+}   
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
 ex: suponha os valores [3, 8, 7, 9,  ,  ]. Após excluir, a estrutura deve ficar da seguinte forma [3, 8, 7,  ,  ,  ].

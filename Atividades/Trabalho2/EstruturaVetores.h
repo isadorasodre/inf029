@@ -14,8 +14,3 @@
 #define NOVO_TAMANHO_INVALIDO -10
 #define TODAS_ESTRUTURAS_AUXILIARES_VAZIAS -11
 
-typedef struct VetorPrincipal{
-	int *apontador; 
-	int tamanho_vetorprincipal; 
-	int cont;
-} VetorPrincipal;
