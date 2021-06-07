@@ -27,6 +27,7 @@ typedef struct estrutura_vetor{
 	int *aponta;
 } estutura_vetor;
 
+int erro_posicao(int posicao);
 int criarEstruturaAuxiliar(int posicao, int tamanho);
 int inserirNumeroEmEstrutura(int posicao, int valor);
 int excluirNumeroDoFinaldaEstrutura(int posicao);
