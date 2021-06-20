@@ -7,17 +7,19 @@ int main ()
 {
     int n = 5;
     int resultado = fatorial (n);
-    printf("O fatorial de %d eh %d", n, resultado);
+    printf("O fatorial de %d eh %d", &n, &resultado);
 }
 
 int fatorial (int n)
 {
+    int resultado;
     if (n ==0)
     {
-        return 1; 
+        resultado = 1; 
     }
     else 
     {
-        return  n * fatorial (n - 1);
+        result = n * fatorial (n - 1);
     }
+    return resultado; 
 }
