@@ -12,10 +12,12 @@ int main ()
 
 int fibo (int x, int y, int z)
 {
+    int resultado;
     if (x == 0)
-        return y;
+        resultado = y;
     if (x == 1) 
-        return z;
+        resultado = z;
     else
-    return fibo(x-1, y, y+z);
+    resultado = fibo(x-1, y, y+z);
+    return resultado; 
 }
