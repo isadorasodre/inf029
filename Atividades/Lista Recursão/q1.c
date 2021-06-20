@@ -12,14 +12,12 @@ int main ()
 
 int fatorial (int n)
 {
-    int resultado;
     if (n ==0)
     {
-        resultado = 1; 
+        return 1; 
     }
     else 
     {
-        resultado = n * fatorial (n - 1);
+        return  n * fatorial (n - 1);
     }
-    return resultado; 
 }
