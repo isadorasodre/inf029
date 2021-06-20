@@ -1,23 +1,18 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 
-int fibo (int x, int y, int z);
+int fibonacci (int n, int x, int y);
 
-int main ()
-{
-    int x = 200;
-    int result = fibo (x, 0, 1);
-    printf("O termo %d na sequencia fibonacci eh %d \n", x, result);
+int main (){
+  int n = 8;
+  int fib = fibonacci(n, 0, 1);
+  printf ("O termo %d da sequencia Fibonacci eh %d", n, fib);
 }
 
-int fibo (int x, int y, int z)
-{
-    int resultado;
-    if (x == 0)
-            resultado = y;
-    if (x == 1) 
-            resultado = z;
-    else
-        resultado = fibo(x-1, y, y+z);
-    return resultado; 
+int fibonacci (int n, int x, int y) {
+    if (n == 0)
+         return x;
+    if (n == 1) 
+        return y;
+    return fibonacci(n-1, y, x+y);
 }
