@@ -9,7 +9,7 @@ int main ()
     int b = 20;
     int c = a;
     int maxdiv = mmc(a, b, c);
-    printf("O maxim divisor comum de %d e %d eh %d", a, b, maxdiv);
+    printf("O maximo divisor comum de %d e %d eh %d", a, b, maxdiv);
 }
 
 int mmc (int a, int b, int c)
