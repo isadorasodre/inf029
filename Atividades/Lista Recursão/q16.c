@@ -5,7 +5,7 @@ int fatduplo (int a);
 
 int main ()
 {
-    int a = 0;
+    int a = 9;
     int resultado = fatduplo (a);
     printf ("O resultado do duplo fatorial de %d eh %d", a, resultado);
 }
