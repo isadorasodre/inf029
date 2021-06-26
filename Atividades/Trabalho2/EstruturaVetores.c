@@ -139,8 +139,7 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-    int retorno;
-    int i; 
+    int retorno, i, apontador, encontrou; 
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
@@ -154,24 +153,42 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
             if(vetorPrincipal[posicao].contador == 0)
                 retorno = ESTRUTURA_AUXILIAR_VAZIA; 
             else
-            {
-                for (i = 0; i < vetorPrincipal[posicao]; i++)
-                {
-                    if(vetorPrincipal[posicao].aponta[i != valor])
-                    {
-                        retorno = NUMERO_INEXISTENTE
-                    }
-                    else
-                    {
-                        
-                    }
+                {   
+                    i = vetorPrincipal[posicao].contador;
+                        if(i == 1 && vetorPrincipal[posicao].aponta[0]==valor)
+                        {
+                            encontrou = 1;
+                        }
+                        else
+                        {
+                            for (i =0; i < i-1; i++)
+                            {
+                                if (vetorPrincipal[posicao].aponta[i] == valor)
+                                {
+                                    apontador = vetorPrincipal[posicao].aponta[i];
+                                    vetorPrincipal[posicao].aponta[i]= vetorPrincipal[posicao].aponta[i+1];
+                                    vetorPrincipal[posicao].aponta[i+1]=apontador;
+                                    encontrou = 1;
+                                }
+                                if (encontrou == 0)
+                                {
+                                    retorno = NUMERO_INEXISTENTE;
+                                }
+                                else
+                                {
+                                    vetorPrincipal[posicao].contador--;
+                                    retorno = SUCESSO;
+                                }
+                            }
+
+                        }
                 }
-            }
+
+
         
 
         }
     }
-}
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
 {
