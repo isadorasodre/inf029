@@ -188,6 +188,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
         
 
         }
+        return retorno;  
     }
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
