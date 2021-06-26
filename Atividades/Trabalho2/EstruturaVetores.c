@@ -146,7 +146,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
     }
     else
         posicao --;
-        if (vetorPrincipal[posicao] == NULL)
+        if (vetorPrincipal[posicao].aponta == NULL)
             retorno = SEM_ESTRUTURA_AUXILIAR;
         else
         {
