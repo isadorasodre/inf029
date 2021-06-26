@@ -183,10 +183,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 
                         }
                 }
-
-
-        
-
+       
         }
         return retorno;  
     }
