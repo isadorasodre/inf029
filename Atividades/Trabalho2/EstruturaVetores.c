@@ -213,7 +213,7 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
-    int n;
+    int i;
     if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
         retorno = POSICAO_INVALIDA;
     else
@@ -221,8 +221,14 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
         posicao --;
         if (vetorPrincipal[posicao].aponta == NULL)
             retorno = SEM_ESTRUTURA_AUXILIAR;
-        if ()
-    }
+        else
+        {
+            for (i = 0; i < vetorprincipal[posicao].contador; i++)
+            {
+                vetorAux[i] = vetorPrincipal[posicao].vetorAux[i]~;
+            }
+            retorno = SUCESSO;
+        }
 
     return retorno;
 }
