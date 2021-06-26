@@ -4,15 +4,6 @@
 
 #include "EstruturaVetores.h"
 
-int erro_posicao(int posicao)
-{
-    int retorno;
-    if (posicao < 1 || posicao > TAM)
-            retorno = 1;
-    else 
-        retorno = 0;
-    return retorno;  
-}   
 
 void dobrar(int *x)
 {
@@ -23,7 +14,7 @@ void dobrar(int *x)
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
     int retorno = 0;
-    if (erro_posicao(posicao) == 1)
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
         retorno = POSICAO_INVALIDA;
         else
         {
@@ -65,7 +56,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
     int temEspaco = 0;
     int posicao_invalida = 0;
 
-    if (erro_posicao(posicao) == 1)
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
     }
@@ -106,7 +97,7 @@ Rertono (int)
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
     int retorno = SUCESSO;
-    if (erro_posicao(posicao) == 1)
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
     }
@@ -148,7 +139,38 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
+    int retorno;
+    int i; 
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+    {
+        retorno = POSICAO_INVALIDA;
+    }
+    else
+        posicao --;
+        if (vetorPrincipal[posicao] == NULL)
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        else
+        {
+            if(vetorPrincipal[posicao].contador == 0)
+                retorno = ESTRUTURA_AUXILIAR_VAZIA; 
+            else
+            {
+                for (i = 0; i < vetorPrincipal[posicao]; i++)
+                {
+                    if(vetorPrincipal[posicao].aponta[i != valor])
+                    {
+                        retorno = NUMERO_INEXISTENTE
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+        
 
+        }
+    }
 }
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
