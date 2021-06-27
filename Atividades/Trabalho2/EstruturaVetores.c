@@ -75,13 +75,14 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
         retorno = POSICAO_INVALIDA;
     }
     else
-    {
+    {   
         posicao --;
         if (vetorPrincipal[posicao].aponta == NULL)
         {
             retorno=SEM_ESTRUTURA_AUXILIAR;
         }
         else
+            existeEstruturaAuxiliar = 1;
             {
                 n = vetorPrincipal[posicao].contador;
                 if (n >= vetorPrincipal[posicao].tamanho_vetor)
@@ -89,7 +90,8 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
                     retorno = SEM_ESPACO;
                 }
                 else // tudo ok, adiciona-se a estrutura
-                {       
+                {   
+                    temEspaco = 1;    
                     vetorPrincipal[posicao].aponta[n] = valor;
                     vetorPrincipal[posicao].contador ++;
                     retorno =  SUCESSO;
