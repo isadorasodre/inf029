@@ -109,10 +109,22 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
+    }
+    else if (vetorPrincipal[posicao-1].aponta == NULL
+    {
+        retorno = SEM_ESTRUTURA_AUXILIAR;
+    }
+    else if (vetorPrincipal[posicao-1].contador <1)
+    {
+        retorno = ESTRUTURA_AUXILIAR_VAZIA;
+    }
     else
     {
-        if(vetorPrincipal[posicao-1].)
+        vetorPrincipal[posicao - 1].contador --;
+        retorno = SUCESSO; 
     }
+    return retorno;
+}
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar da posição 'posicao'.
 Caso seja excluido, os números posteriores devem ser movidos para as posições anteriores
