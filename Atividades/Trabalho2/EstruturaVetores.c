@@ -10,6 +10,21 @@ void dobrar(int *x)
     *x = *x * 2;
 }
 
+// se posição é um valor válido {entre 1 e 10}
+int ehPosicaoValida(int posicao)
+{
+    int retorno = 0;
+    if (posicao < 1 || posicao > 10)
+    {
+        retorno = POSICAO_INVALIDA;
+    }
+    else
+    {
+        retorno = SUCESSO;
+    }
+    return retorno;
+}
+
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
     int retorno = 0;
@@ -186,20 +201,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
         }
         return retorno;  
     }
-// se posição é um valor válido {entre 1 e 10}
-int ehPosicaoValida(int posicao)
-{
-    int retorno = 0;
-    if (posicao < 1 || posicao > 10)
-    {
-        retorno = POSICAO_INVALIDA;
-    }
-    else
-    {
-        retorno = SUCESSO;
-    }
-    return retorno;
-}
+
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
 os números devem ser armazenados em vetorAux
@@ -287,11 +289,31 @@ Rertono (int)
 */
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
-
     int retorno = 0;
+    int cont = 0;
+    int a = 0;
+    int b = 0;
+    int c = 0; 
+        for (a =0; a < TAM; a ++)
+        {
+            if(vetorPrincipal[a].contador > 0)
+            {
+                for (b =0; b < vetorPrincipal[a].contador; b ++)
+                {
+                    vetorAux[c] = vetorPrincipal[a].aponta[b];
+                    c ++;
+                }
+            }
+            else    
+                cont ++;
+
+        }    
+        if (cont == 10)
+            retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
+        else
+            retorno = SUCESSO; 
     return retorno;
 }
-
 /*
 Objetivo: retorna os números ordenados de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux
