@@ -27,22 +27,22 @@ typedef struct estrutura_vetor{
 
 estutura_vetor vetorPrincipal [TAM];
 
+void inicializar();
 int criarEstruturaAuxiliar(int posicao, int tamanho);
-int inserirNumeroEmEstrutura(int posicao, int valor);
+int ehPosicaoValida(int posicao);
+int inserirNumeroEmEstrutura( int posicao, int valor);
 int excluirNumeroDoFinaldaEstrutura(int posicao);
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor);
 int getDadosEstruturaAuxiliar(int posicao, int vetorAux[]);
 int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[]);
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[]);
-int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[]);
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
 int getQuantidadeElementosEstruturaAuxiliar(int posicao);
-No *montarListaEncadeadaComCabecote();
-void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
-void destruirListaEncadeadaComCabecote(No **inicio);
+int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[]);
 
-void inicializar();
-void finalizar();
-void dobrar(int *x);
+No* montarListaEncadeadaComCabecote();
+void getDadosListaEncadeadaComCabecote(No* inicio, int vetorAux[]);
+void inserirFimListaEncadeada(No **inicio, int valor);
+void destruirListaEncadeadaComCabecote(No** inicio);
 
 #endif  // TRABALHO2_ESTRUTURAVETORES_H
