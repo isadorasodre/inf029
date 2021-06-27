@@ -153,7 +153,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
             if(vetorPrincipal[posicao].contador == 0)
                 retorno = ESTRUTURA_AUXILIAR_VAZIA; 
             else
-                {   
+            {   
                     i = vetorPrincipal[posicao].contador;
                         if(i == 1 && vetorPrincipal[posicao].aponta[0]==valor)
                         {
@@ -182,7 +182,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
                             }
 
                         }
-                }
+            }
        
         }
         return retorno;  
@@ -223,9 +223,9 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
             retorno = SEM_ESTRUTURA_AUXILIAR;
         else
         {
-            for (i = 0; i < vetorprincipal[posicao].contador; i++)
+            for (i = 0; i < vetorPrincipal[posicao].contador; i++)
             {
-                vetorAux[i] = vetorPrincipal[posicao].vetorAux[i]~;
+                vetorAux[i] = vetorPrincipal[posicao].aponta[i];
             }
             retorno = SUCESSO;
         }
