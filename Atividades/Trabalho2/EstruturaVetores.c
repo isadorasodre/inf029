@@ -63,7 +63,6 @@ Rertono (int)
 CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao, int valor)
-int inserirNumeroEmEstrutura(int posicao, int valor)
 {   
     int n, retorno = 0;
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
