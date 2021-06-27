@@ -26,7 +26,7 @@ int ehPosicaoValida(int posicao)
     {
         retorno = SUCESSO;
     }
-    return retorno;
+    return (retorno);
 }
 
 
@@ -34,31 +34,35 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
     int retorno = 0;
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
-        retorno = POSICAO_INVALIDA;
+    {
+        retorno = POSICAO_INVALIDA; 
+    }
+    else
+    {
+        if(vetorPrincipal[posicao-1].aponta != NULL)
+        {
+            retorno = JA_TEM_ESTRUTURA_AUXILIAR;
+        }
+        if (tamanho < 1)
+        {
+            retorno = TAMANHO_INVALIDO;
+        }
         else
         {
-            if (tamanho  < 1)
-                retorno = TAMANHO_INVALIDO;
-            else
+            vetorPrincipal[posicao -1].aponta = (int *)malloc(sizeof(int));
+            if (vetorPrincipal[posicao-1].aponta != NULL)
             {
-                if (vetorPrincipal[posicao].aponta!= NULL)
-                    retorno = JA_TEM_ESTRUTURA_AUXILIAR;
-                else
-                {
-                    vetorPrincipal[posicao].aponta=(int*)malloc(tamanho*sizeof(int)); 
-                    if (vetorPrincipal[posicao].aponta!=NULL)
-                    {
-                        vetorPrincipal[posicao].tamanho_vetor=tamanho;
-                        retorno=SUCESSO;
-                    }
-                    else 
-                        retorno=SEM_ESPACO_DE_MEMORIA;
-                }
+                vetorPrincipal[posicao-1].tamanho_vetor= tamanho;
+                retorno = SUCESSO; 
+            }
+            else 
+            {
+              retorno = SEM_ESPACO_DE_MEMORIA;
             }
         }
-    return retorno;
+    }
+   return (retorno); 
 }
-
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
 Rertono (int)
@@ -68,36 +72,38 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 CONSTANTES
 */
-int inserirNumeroEmEstrutura(int posicao, int valor)
-{   
-    int retorno = 0;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+int inserirNumeroEmEstrutura(int posicao, int valor){
+	
+	int retorno = 0;
+    
+	if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
-        retorno = POSICAO_INVALIDA;
-    }
+	retorno = POSICAO_INVALIDA;
+	}
     else
     {
-        if (vetorPrincipal[posicao -1].aponta !=NULL)
+		if(vetorPrincipal[posicao-1].aponta != NULL)
         {
-            if(vetorPrincipal[posicao -1].contador < vetorPrincipal[posicao -1].tamanho_vetor)
+			if(vetorPrincipal[posicao-1].contador < vetorPrincipal[posicao-1].tamanho_vetor)
             {
-               vetorPrincipal[posicao -1].aponta[vetorPrincipal[posicao -1].contador] = valor;
-               vetorPrincipal[posicao -1].contador++;
-               retorno = SUCESSO;
-            }
-            else 
+				vetorPrincipal[posicao-1].aponta[vetorPrincipal[posicao-1].contador] = valor;
+				vetorPrincipal[posicao-1].contador ++;
+				retorno = SUCESSO;
+				
+			}
+            else
             {
-                retorno = SEM_ESPACO;
-            }
-        }
+				retorno = SEM_ESPACO;
+			}
+			
+		}
         else
-        {
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        }
-
-    }
-
-    return (retorno);
+        {	
+			retorno = SEM_ESTRUTURA_AUXILIAR;
+		}
+			
+	}	
+	return (retorno);
 }
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
@@ -110,27 +116,28 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 */
 int excluirNumeroDoFinaldaEstrutura(int posicao)
-{
-    int retorno = SUCESSO;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+{   
+    int retorno = 0;
+	if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
-        retorno = POSICAO_INVALIDA;
+	    retorno = POSICAO_INVALIDA;
     }
-    else if (vetorPrincipal[posicao-1].aponta == NULL)
+    else if(vetorPrincipal[posicao-1].aponta == NULL)
     {
-        retorno = SEM_ESTRUTURA_AUXILIAR;
-    }
-    else if (vetorPrincipal[posicao-1].contador <1)
+    	   retorno = SEM_ESTRUTURA_AUXILIAR;	   
+	}
+    else if(vetorPrincipal[posicao-1].contador < 1)
     {
-        retorno = ESTRUTURA_AUXILIAR_VAZIA;
-    }
+		    retorno = ESTRUTURA_AUXILIAR_VAZIA;
+	}
     else
     {
-        vetorPrincipal[posicao - 1].contador --;
-        retorno = SUCESSO; 
-    }
-    return retorno;
+		vetorPrincipal[posicao-1].contador --;
+		retorno = SUCESSO;
+	}
+    return (retorno);
 }
+
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar da posição 'posicao'.
 Caso seja excluido, os números posteriores devem ser movidos para as posições anteriores
