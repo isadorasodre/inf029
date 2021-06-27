@@ -170,20 +170,36 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
         }
         else
         {
-            a = vetorPrincipal[posicao-1].contador
-            if (a ==1 && 
+            a = vetorPrincipal[posicao-1].contador;
+            if (a ==1 && vetorPrincipal[0].aponta[a] == valor)
+            {
+                encontrou = 1;
+            }
+            else
+            {
+                for (a =0; a< a-1; a ++)
+                {
+                    if(vetorPrincipal[posicao-1].aponta[a] == valor)
+                    {
+                        apontador = vetorPrincipal[posicao-1].aponta[a];
+                        vetorPrincipal[posicao -1].aponta[a] = vetorPrincipal[posicao -1].aponta[a+1];
+                        vetorPrincipal[posicao - 1].aponta[a+1] = apontador;
+                        encontrou = 1;
+                    }
+                }
+                if (encontrou == 0)
+                {
+                    retorno NUMERO_INEXISTENTE;
+                }
+                else
+                {
+                    vetorPrincipal[posicao-1].contador--;
+                    retorno = SUCESSO;
+                }
+    
+            }
         }
-
-
-
-
-
-
-
-
-
-    }
-
+    return (retorno);
 }
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
@@ -197,6 +213,21 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+    {
+        retorno = POSICAO_INVALIDA;
+    }
+    else
+    {
+        if(vetorPrincipal[posicao-1].aponta == NULL)
+        {
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+        if (vetorPrincipal[posicao-1].contador == 0)
+        {
+            
+        }
+    } 
     return retorno;
 }
 
@@ -304,9 +335,6 @@ Retorno
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
 }
-
-
-
 /*
 Objetivo: finaliza o programa. deve ser chamado ao final do programa 
 para poder liberar todos os espaços de memória das estruturas auxiliares.
