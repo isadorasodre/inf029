@@ -94,14 +94,12 @@ int inserirNumeroEmEstrutura(int posicao, int valor){
             else
             {
 				retorno = SEM_ESPACO;
-			}
-			
+			}	
 		}
         else
         {	
 			retorno = SEM_ESTRUTURA_AUXILIAR;
-		}
-			
+		}		
 	}	
 	return (retorno);
 }
@@ -122,14 +120,16 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
     {
 	    retorno = POSICAO_INVALIDA;
     }
-    else if(vetorPrincipal[posicao-1].aponta == NULL)
+    else
     {
-    	   retorno = SEM_ESTRUTURA_AUXILIAR;	   
-	}
-    else if(vetorPrincipal[posicao-1].contador < 1)
-    {
+        if(vetorPrincipal[posicao-1].aponta == NULL)
+        {
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        }	   
+        if(vetorPrincipal[posicao-1].contador < 1)
+        {
 		    retorno = ESTRUTURA_AUXILIAR_VAZIA;
-	}
+	    }
     else
     {
 		vetorPrincipal[posicao-1].contador --;
@@ -152,7 +152,38 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-    
+    int retorno = 0;
+    int a, encontrou, apontador; 
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+    {
+        retorno = POSICAO_INVALIDA; 
+    }
+    else
+    {   
+        if (vetorPrincipal[posicao - 1].aponta == NULL)
+        {
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+        if (vetorPrincipal[posicao -1].contador == 0)
+        {
+            retorno = ESTRUTURA_AUXILIAR_VAZIA;
+        }
+        else
+        {
+            a = vetorPrincipal[posicao-1].contador
+            if (a ==1 && 
+        }
+
+
+
+
+
+
+
+
+
+    }
+
 }
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
@@ -281,12 +312,4 @@ Objetivo: finaliza o programa. deve ser chamado ao final do programa
 para poder liberar todos os espaços de memória das estruturas auxiliares.
 */
 
-void finalizar()
-{
-    int i; 
-    for (i = 0; i < TAM; i++)
-    {
-        vetorPrincipal[i].aponta = NULL;
-    }
-}
 
