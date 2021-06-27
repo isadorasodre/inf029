@@ -245,7 +245,36 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
-
+    int i, j, k, aux, total;
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+        posicao --;
+        if (vetorPrincipal[posicao].aponta == NULL)
+        retorno = SEM_ESTRUTURA_AUXILIAR;
+        else
+        {
+            for (i; i <vetorPrincipal[posicao].contador; i ++)
+            {
+                total = i;
+                vetorAux[i] = vetorPrincipal[posicao].aponta[i];
+            }
+            for (j; j <= total; j++)    
+            {
+                for (k = j +1; j <=total; j++ )
+                {
+                    if (vetorAux[k] < vetorAux[j])
+                    {
+                        aux = vetorAux[j];
+                        vetorAux[j] = vetorAux[k];
+                        vetorAux[k] = aux;
+                        retorno = SUCESSO;
+                    }
+                }
+            }
+        }
+    } 
     return retorno;
 }
 
@@ -348,6 +377,13 @@ Objetivo: inicializa o programa. deve ser chamado ao inicio do programa
 
 void inicializar()
 {
+    int i;
+    for (i=0; i < TAM; i++)
+    {
+        vetorPrincipal[i].aponta = NULL;
+        vetorPrincipal[i].tamanho_vetor = 0;
+        vetorPrincipal[i].contador = 0;
+    }
 }
 
 /*
@@ -357,5 +393,10 @@ para poder liberar todos os espaços de memória das estruturas auxiliares.
 
 void finalizar()
 {
+    int i; 
+    for (i = 0; i < TAM; i++)
+    {
+        vetorPrincipal[i].aponta = NULL;
+    }
 }
 
