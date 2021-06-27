@@ -92,7 +92,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
                 {       
                     vetorPrincipal[posicao].aponta[n] = valor;
                     vetorPrincipal[posicao].contador ++;
-                    return SUCESSO;
+                    retorno =  SUCESSO;
                 } 
             }
     }    
@@ -131,7 +131,7 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
             else
             {
                 vetorPrincipal[posicao].contador--;
-                retorno SUCESSO; 
+                retorno = SUCESSO; 
             }
         }
 
@@ -358,6 +358,25 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
 
     int retorno = 0;
+    int a;
+    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+        posicao --;
+        if (vetorPrincipal[posicao].aponta == NULL)
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        else
+        {
+            if(vetorPrincipal[posicao].contador == 0)
+                retorno = ESTRUTURA_AUXILIAR_VAZIA;
+            else
+            {
+                a=vetorPrincipal[posicao].contador;
+                retorno = a;
+            }
+        }
+    }
 
     return retorno;
 }
