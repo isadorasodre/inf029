@@ -63,13 +63,9 @@ Rertono (int)
 CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao, int valor)
+int inserirNumeroEmEstrutura(int posicao, int valor)
 {   
-    int n;
-    int retorno = 0;
-    int existeEstruturaAuxiliar = 0;
-    int temEspaco = 0;
-    int posicao_invalida = 0;
-
+    int n, retorno = 0;
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
@@ -82,7 +78,6 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
             retorno=SEM_ESTRUTURA_AUXILIAR;
         }
         else
-            existeEstruturaAuxiliar = 1;
             {
                 n = vetorPrincipal[posicao].contador;
                 if (n >= vetorPrincipal[posicao].tamanho_vetor)
@@ -91,7 +86,6 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
                 }
                 else // tudo ok, adiciona-se a estrutura
                 {   
-                    temEspaco = 1;    
                     vetorPrincipal[posicao].aponta[n] = valor;
                     vetorPrincipal[posicao].contador ++;
                     retorno =  SUCESSO;
@@ -99,7 +93,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
             }
     }    
     return retorno;
-}   
+}
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
 ex: suponha os valores [3, 8, 7, 9,  ,  ]. Após excluir, a estrutura deve ficar da seguinte forma [3, 8, 7,  ,  ,  ].
