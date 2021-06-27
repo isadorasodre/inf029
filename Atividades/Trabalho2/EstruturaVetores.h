@@ -17,6 +17,11 @@
 #define TODAS_ESTRUTURAS_AUXILIARES_VAZIAS -11
 #define TAM 10
 
+typedef struct reg{
+	int conteudo;
+	struct reg *prox;
+} No;
+
 typedef struct estrutura_vetor{
 	int tamanho_vetor;
 	int contador;
@@ -25,12 +30,7 @@ typedef struct estrutura_vetor{
 
 estutura_vetor vetorPrincipal [TAM];
 
-typedef struct reg{
-	int conteudo;
-	struct reg *prox;
-} No;
-
-int erro_posicao(int posicao);
+void inicializar ();
 int ehPosicaoValida(int posicao);
 int criarEstruturaAuxiliar(int posicao, int tamanho);
 int inserirNumeroEmEstrutura(int posicao, int valor);
@@ -46,7 +46,6 @@ No *montarListaEncadeadaComCabecote();
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
 void destruirListaEncadeadaComCabecote(No **inicio);
 
-void inicializar();
 void finalizar();
 void dobrar(int *x);
 

@@ -3,11 +3,15 @@
 
 #include "EstruturaVetores.h"
 
-
-void dobrar(int *x)
+void inicializar ()
 {
-
-    *x = *x * 2;
+    int i;
+    for (i=0; i < TAM; i++)
+    {
+        vetorPrincipal[i].aponta = NULL;
+        vetorPrincipal[i].tamanho_vetor = 0;
+        vetorPrincipal[i].contador = 0;
+    }
 }
 
 // se posição é um valor válido {entre 1 e 10}
@@ -24,6 +28,7 @@ int ehPosicaoValida(int posicao)
     }
     return retorno;
 }
+
 
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 { 
@@ -53,6 +58,7 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
         }
     return retorno;
 }
+
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
 Rertono (int)
@@ -91,7 +97,7 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
 
     }
 
-    return retorno;
+    return (retorno);
 }
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
@@ -139,55 +145,8 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-    int retorno, i, apontador, encontrou; 
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
-    {
-        retorno = POSICAO_INVALIDA;
-    }
-    else
-        posicao --;
-        if (vetorPrincipal[posicao].aponta == NULL)
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        else
-        {
-            if(vetorPrincipal[posicao].contador == 0)
-                retorno = ESTRUTURA_AUXILIAR_VAZIA; 
-            else
-            {   
-                    i = vetorPrincipal[posicao].contador;
-                        if(i == 1 && vetorPrincipal[posicao].aponta[0]==valor)
-                        {
-                            encontrou = 1;
-                        }
-                        else
-                        {
-                            for (i =0; i < i-1; i++)
-                            {
-                                if (vetorPrincipal[posicao].aponta[i] == valor)
-                                {
-                                    apontador = vetorPrincipal[posicao].aponta[i];
-                                    vetorPrincipal[posicao].aponta[i]= vetorPrincipal[posicao].aponta[i+1];
-                                    vetorPrincipal[posicao].aponta[i+1]=apontador;
-                                    encontrou = 1;
-                                }
-                                if (encontrou == 0)
-                                {
-                                    retorno = NUMERO_INEXISTENTE;
-                                }
-                                else
-                                {
-                                    vetorPrincipal[posicao].contador--;
-                                    retorno = SUCESSO;
-                                }
-                            }
-
-                        }
-            }
-       
-        }
-        return retorno;  
-    }
-
+    
+}
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
 os números devem ser armazenados em vetorAux
@@ -308,20 +267,7 @@ void destruirListaEncadeadaComCabecote(No **inicio)
 {
 }
 
-/*
-Objetivo: inicializa o programa. deve ser chamado ao inicio do programa 
-*/
 
-void inicializar()
-{
-    int i;
-    for (i=0; i < TAM; i++)
-    {
-        vetorPrincipal[i].aponta = NULL;
-        vetorPrincipal[i].tamanho_vetor = 0;
-        vetorPrincipal[i].contador = 0;
-    }
-}
 
 /*
 Objetivo: finaliza o programa. deve ser chamado ao final do programa 
