@@ -255,12 +255,12 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
         retorno = SEM_ESTRUTURA_AUXILIAR;
         else
         {
-            for (i; i <vetorPrincipal[posicao].contador; i ++)
+            for (i = 0; i <vetorPrincipal[posicao].contador; i ++)
             {
                 total = i;
                 vetorAux[i] = vetorPrincipal[posicao].aponta[i];
             }
-            for (j; j <= total; j++)    
+            for (j = 0; j <= total; j++)    
             {
                 for (k = j +1; j <=total; j++ )
                 {
