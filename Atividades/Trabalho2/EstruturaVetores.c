@@ -64,33 +64,33 @@ CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao, int valor)
 {   
-    int n, retorno = 0;
+    int retorno = 0;
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
     }
     else
-    {   
-        posicao --;
-        if (vetorPrincipal[posicao].aponta == NULL)
+    {
+        if (vetorPrincipal[posicao -1].aponta !=NULL)
         {
-            retorno=SEM_ESTRUTURA_AUXILIAR;
+            if(vetorPrincipal[posicao -1].contador < vetorPrincipal[posicao -1].tamanho_vetor)
+            {
+               vetorPrincipal[posicao -1].aponta[vetorPrincipal[posicao -1].contador] = valor;
+               vetorPrincipal[posicao -1].contador++;
+               retorno = SUCESSO;
+            }
+            else 
+            {
+                retorno = SEM_ESPACO;
+            }
         }
         else
-            {
-                n = vetorPrincipal[posicao].contador;
-                if (n >= vetorPrincipal[posicao].tamanho_vetor)
-                {
-                    retorno = SEM_ESPACO;
-                }
-                else // tudo ok, adiciona-se a estrutura
-                {   
-                    vetorPrincipal[posicao].aponta[n] = valor;
-                    vetorPrincipal[posicao].contador ++;
-                    retorno =  SUCESSO;
-                } 
-            }
-    }    
+        {
+            retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+
+    }
+
     return retorno;
 }
 /*
@@ -109,31 +109,10 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
         retorno = POSICAO_INVALIDA;
-    }
     else
-    {   
-        posicao--;
-        if(vetorPrincipal[posicao].aponta == NULL)
-        {
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        }
-        else
-        {
-            if (vetorPrincipal[posicao].contador == 0)
-            {
-                retorno = ESTRUTURA_AUXILIAR_VAZIA;
-            }
-            else
-            {
-                vetorPrincipal[posicao].contador--;
-                retorno = SUCESSO; 
-            }
-        }
-
+    {
+        if(vetorPrincipal[posicao-1].)
     }
-    return retorno;
-}
-
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar da posição 'posicao'.
 Caso seja excluido, os números posteriores devem ser movidos para as posições anteriores
@@ -209,23 +188,6 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
-    int i;
-    if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
-        retorno = POSICAO_INVALIDA;
-    else
-    {
-        posicao --;
-        if (vetorPrincipal[posicao].aponta == NULL)
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        else
-        {
-            for (i = 0; i < vetorPrincipal[posicao].contador; i++)
-            {
-                vetorAux[i] = vetorPrincipal[posicao].aponta[i];
-            }
-            retorno = SUCESSO;
-        }
-    }
     return retorno;
 }
 
@@ -241,36 +203,6 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
-    int i, j, k, aux, total;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
-        retorno = POSICAO_INVALIDA;
-    else
-    {
-        posicao --;
-        if (vetorPrincipal[posicao].aponta == NULL)
-        retorno = SEM_ESTRUTURA_AUXILIAR;
-        else
-        {
-            for (i = 0; i <vetorPrincipal[posicao].contador; i ++)
-            {
-                total = i;
-                vetorAux[i] = vetorPrincipal[posicao].aponta[i];
-            }
-            for (j = 0; j <= total; j++)    
-            {
-                for (k = j +1; j <=total; j++ )
-                {
-                    if (vetorAux[k] < vetorAux[j])
-                    {
-                        aux = vetorAux[j];
-                        vetorAux[j] = vetorAux[k];
-                        vetorAux[k] = aux;
-                        retorno = SUCESSO;
-                    }
-                }
-            }
-        }
-    } 
     return retorno;
 }
 
@@ -285,28 +217,6 @@ Rertono (int)
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
     int retorno = 0;
-    int cont = 0;
-    int a = 0;
-    int b = 0;
-    int c = 0; 
-        for (a =0; a < TAM; a ++)
-        {
-            if(vetorPrincipal[a].contador > 0)
-            {
-                for (b =0; b < vetorPrincipal[a].contador; b ++)
-                {
-                    vetorAux[c] = vetorPrincipal[a].aponta[b];
-                    c ++;
-                }
-            }
-            else    
-                cont ++;
-
-        }    
-        if (cont == 10)
-            retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
-        else
-            retorno = SUCESSO; 
     return retorno;
 }
 /*
@@ -353,26 +263,6 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
 
     int retorno = 0;
-    int a;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
-        retorno = POSICAO_INVALIDA;
-    else
-    {
-        posicao --;
-        if (vetorPrincipal[posicao].aponta == NULL)
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        else
-        {
-            if(vetorPrincipal[posicao].contador == 0)
-                retorno = ESTRUTURA_AUXILIAR_VAZIA;
-            else
-            {
-                a=vetorPrincipal[posicao].contador;
-                retorno = a;
-            }
-        }
-    }
-
     return retorno;
 }
 
