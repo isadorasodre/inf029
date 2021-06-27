@@ -349,4 +349,17 @@ Objetivo: finaliza o programa. deve ser chamado ao final do programa
 para poder liberar todos os espaços de memória das estruturas auxiliares.
 */
 
+void finalizar()
+{
+    int i; 
+    for (i = 0; i < TAM; i++)
+    {
+        vetorPrincipal[i].aponta = NULL;
+    }
+}
 
+void dobrar(int *x)
+{
+
+    *x = *x * 2;
+}
