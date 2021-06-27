@@ -229,7 +229,7 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
             }
             retorno = SUCESSO;
         }
-
+    }
     return retorno;
 }
 
