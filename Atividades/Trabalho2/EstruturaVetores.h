@@ -1,9 +1,7 @@
-// Aluna: Isadora de Sodré Chaves
-// Laboratório de Programação
-// Professor: Renato Novais
 #ifndef TRABALHO2_ESTRUTURAVETORES_H
 #define TRABALHO2_ESTRUTURAVETORES_H
 
+#define TAM 10
 #define SUCESSO -1
 #define SEM_ESPACO -2
 #define SEM_ESTRUTURA_AUXILIAR -3
@@ -15,11 +13,10 @@
 #define NUMERO_INEXISTENTE -9
 #define NOVO_TAMANHO_INVALIDO -10
 #define TODAS_ESTRUTURAS_AUXILIARES_VAZIAS -11
-#define TAM 10
 
-typedef struct reg{
-	int conteudo;
-	struct reg *prox;
+typedef struct reg {
+    int conteudo;
+    struct reg *prox;
 } No;
 
 typedef struct estrutura_vetor{
@@ -30,8 +27,6 @@ typedef struct estrutura_vetor{
 
 estutura_vetor vetorPrincipal [TAM];
 
-void inicializar ();
-int ehPosicaoValida(int posicao);
 int criarEstruturaAuxiliar(int posicao, int tamanho);
 int inserirNumeroEmEstrutura(int posicao, int valor);
 int excluirNumeroDoFinaldaEstrutura(int posicao);
@@ -46,6 +41,7 @@ No *montarListaEncadeadaComCabecote();
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
 void destruirListaEncadeadaComCabecote(No **inicio);
 
+void inicializar();
 void finalizar();
 void dobrar(int *x);
 

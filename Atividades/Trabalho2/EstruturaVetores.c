@@ -1,18 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define TAM 10
 
 #include "EstruturaVetores.h"
 
-void inicializar ()
-{
-    int i;
-    for (i=0; i < TAM; i++)
-    {
-        vetorPrincipal[i].aponta = NULL;
-        vetorPrincipal[i].tamanho_vetor = 0;
-        vetorPrincipal[i].contador = 0;
-    }
-}
+estutura_vetor vetorPrincipal [TAM];
 
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
@@ -23,15 +15,22 @@ int ehPosicaoValida(int posicao)
         retorno = POSICAO_INVALIDA;
     }
     else
-    {
         retorno = SUCESSO;
-    }
+
     return retorno;
 }
-
-
+/*
+Objetivo: criar estrutura auxiliar na posição 'posicao'.
+com tamanho 'tamanho'
+Rertono (int)
+    SUCESSO - criado com sucesso
+    JA_TEM_ESTRUTURA_AUXILIAR - já tem estrutura na posição
+    POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+    SEM_ESPACO_DE_MEMORIA - Sem espaço de memória
+    TAMANHO_INVALIDO - o tamanho deve ser maior ou igual a 1
+*/
 int criarEstruturaAuxiliar(int posicao, int tamanho)
-{ 
+{
     int retorno = 0;
     if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
         retorno = POSICAO_INVALIDA;
@@ -59,6 +58,7 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
     return retorno;
 }
 
+
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
 Rertono (int)
@@ -68,37 +68,38 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 CONSTANTES
 */
-int inserirNumeroEmEstrutura(int posicao, int valor)
-{   
+int inserirNumeroEstrutura(int posicao, int valor)
+{
     int retorno = 0;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+    
+	if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
-        retorno = POSICAO_INVALIDA;
+	    retorno = POSICAO_INVALIDA;
     }
+    
     else
-    {
-        if (vetorPrincipal[posicao -1].aponta !=NULL)
-        {
-            if(vetorPrincipal[posicao -1].contador < vetorPrincipal[posicao -1].tamanho_vetor)
+    {	
+        if(vetorPrincipal[posicao-1].aponta != NULL)
+        {	
+			if(vetorPrincipal[posicao-1].contador < vetorPrincipal[posicao-1].tamanho_vetor)
             {
-               vetorPrincipal[posicao -1].aponta[vetorPrincipal[posicao -1].contador] = valor;
-               vetorPrincipal[posicao -1].contador++;
-               retorno = SUCESSO;
-            }
-            else 
+				vetorPrincipal[posicao-1].aponta[vetorPrincipal[posicao-1].contador] = valor;
+				vetorPrincipal[posicao-1].contador ++;
+				retorno = SUCESSO;
+			}
+            else
             {
-                retorno = SEM_ESPACO;
-            }
-        }
+				retorno = SEM_ESPACO;
+			}		
+		}
         else
-        {
-            retorno = SEM_ESTRUTURA_AUXILIAR;
-        }
-
-    }
-
-    return (retorno);
+        {	
+			retorno = SEM_ESTRUTURA_AUXILIAR;
+		}			
+	}
+	return retorno;	
 }
+    
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
 ex: suponha os valores [3, 8, 7, 9,  ,  ]. Após excluir, a estrutura deve ficar da seguinte forma [3, 8, 7,  ,  ,  ].
@@ -111,26 +112,27 @@ Rertono (int)
 */
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
-    int retorno = SUCESSO;
-    if (ehPosicaoValida(posicao) == POSICAO_INVALIDA)
+	int retorno = 0;
+	if(ehPosicaoValida(posicao) == POSICAO_INVALIDA)
     {
-        retorno = POSICAO_INVALIDA;
-    }
-    else if (vetorPrincipal[posicao-1].aponta == NULL)
+	    retorno = POSICAO_INVALIDA;
+    } 
+    else if(vetorPrincipal[posicao-1].aponta == NULL)
     {
-        retorno = SEM_ESTRUTURA_AUXILIAR;
-    }
-    else if (vetorPrincipal[posicao-1].contador <1)
+    	   retorno = SEM_ESTRUTURA_AUXILIAR;
+	}
+    else if(vetorPrincipal[posicao-1].contador < 1)
     {
-        retorno = ESTRUTURA_AUXILIAR_VAZIA;
-    }
+		    retorno = ESTRUTURA_AUXILIAR_VAZIA;
+	}
     else
     {
-        vetorPrincipal[posicao - 1].contador --;
-        retorno = SUCESSO; 
-    }
-    return retorno;
+		vetorPrincipal[posicao-1].contador --;
+		retorno = SUCESSO;
+	} 
+    return (retorno);
 }
+
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar da posição 'posicao'.
 Caso seja excluido, os números posteriores devem ser movidos para as posições anteriores
@@ -145,8 +147,10 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-    
+    int retorno = SUCESSO;
+    return retorno;
 }
+
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
 os números devem ser armazenados em vetorAux
@@ -159,6 +163,7 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
+
     return retorno;
 }
 
@@ -174,6 +179,7 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
+
     return retorno;
 }
 
@@ -182,21 +188,21 @@ Objetivo: retorna os números de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux
 Rertono (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao'
-    SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
-    POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+    TODAS_ESTRUTURAS_AUXILIARES_VAZIAS - todas as estruturas auxiliares estão vazias
 */
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
+
     int retorno = 0;
     return retorno;
 }
+
 /*
 Objetivo: retorna os números ordenados de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux
 Rertono (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao'
-    SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
-    POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+    TODAS_ESTRUTURAS_AUXILIARES_VAZIAS - todas as estruturas auxiliares estão vazias
 */
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
@@ -234,6 +240,7 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
 
     int retorno = 0;
+
     return retorno;
 }
 
@@ -267,7 +274,20 @@ void destruirListaEncadeadaComCabecote(No **inicio)
 {
 }
 
+/*
+Objetivo: inicializa o programa. deve ser chamado ao inicio do programa 
+*/
 
+void inicializar()
+{
+    int n;
+    for (n=0; n<TAM; n++)
+    {
+    vetorPrincipal[n].aponta=NULL;
+    vetorPrincipal[n].tamanho_vetor=0;
+    vetorPrincipal[n].contador=0;
+    }
+}
 
 /*
 Objetivo: finaliza o programa. deve ser chamado ao final do programa 
@@ -276,10 +296,9 @@ para poder liberar todos os espaços de memória das estruturas auxiliares.
 
 void finalizar()
 {
-    int i; 
-    for (i = 0; i < TAM; i++)
-    {
-        vetorPrincipal[i].aponta = NULL;
-    }
+  int i;
+  for (i=0; i<TAM; i++)
+  {
+    vetorPrincipal[i].aponta=NULL;
+  }    
 }
-
