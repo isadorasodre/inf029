@@ -189,7 +189,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
                 }
                 if (encontrou == 0)
                 {
-                    retorno NUMERO_INEXISTENTE;
+                    retorno = NUMERO_INEXISTENTE;
                 }
                 else
                 {
@@ -237,7 +237,7 @@ int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
             retorno = SUCESSO;
         }
     } 
-    return retorno;
+    return (retorno);
 }
 
 /*
