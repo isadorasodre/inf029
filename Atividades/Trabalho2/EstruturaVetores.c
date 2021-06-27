@@ -110,7 +110,7 @@ int excluirNumeroDoFinaldaEstrutura(int posicao)
     {
         retorno = POSICAO_INVALIDA;
     }
-    else if (vetorPrincipal[posicao-1].aponta == NULL
+    else if (vetorPrincipal[posicao-1].aponta == NULL)
     {
         retorno = SEM_ESTRUTURA_AUXILIAR;
     }
